@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ react ]
   pull_request:
-    branches: [ main ]
+    branches: [ react ]
 
 jobs:
   build:
@@ -17,6 +17,8 @@ jobs:
  # this will check connection and run a command to transfer the commited files
    steps:
     - uses: actions/checkout@v2
+      with:
+        ref: react
 
     - name: Copy repository contents via scp
       uses: appleboy/scp-action@master
@@ -36,7 +38,10 @@ jobs:
         USERNAME: ${{ secrets.SSH_USERNAME }}
         PORT: ${{ secrets.SSH_PORT }}
         KEY: ${{ secrets.SSH_KEY }}
-        script: npm install
+        script: |
+          npm install
+          npm run build
+          npm run serve-fe
       
         
      # Thiss will install dependencies, build dependencies, and run automatic testing
