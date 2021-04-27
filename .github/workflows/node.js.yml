@@ -41,7 +41,7 @@ jobs:
         script: |
           npm install
           npm run build
-          npm run serve-fe
+          pm2 restart ifind-fe
       
         
      # Thiss will install dependencies, build dependencies, and run automatic testing
