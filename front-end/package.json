@@ -77,8 +77,8 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "serve": "node server.js",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook -s ./public"
   },
   "eslintConfig": {
     "extends": [
@@ -110,11 +110,15 @@
     ]
   },
   "devDependencies": {
+    "@bem-react/eslint-plugin": "^1.1.2",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",
     "@storybook/react": "^6.2.9",
     "bootstrap": "^5.0.0-beta3",
-    "node-sass": "^5.0.0"
+    "node-sass": "^5.0.0",
+    "stylelint": "^13.13.1",
+    "stylelint-selector-bem-pattern": "^2.1.0",
+    "stylelint-webpack-plugin": "^2.1.1"
   }
 }

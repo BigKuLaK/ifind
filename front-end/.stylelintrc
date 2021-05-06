@@ -1,0 +1,16 @@
+{
+    "plugins": [
+      "stylelint-selector-bem-pattern"
+    ],
+    "preset": "suit",
+    "rules": {
+      "plugin/selector-bem-pattern": {
+        "componentName": "[A-Z]+",
+        "componentSelectors": {
+          "initial": "^\\.{componentName}(?:-[a-z]+)?([-_]{2}[a-z]+)?$",
+          "combined": "^\\.combined-{componentName}-[a-z]+$"
+        },
+        "utilitySelectors": "^\\.util-[a-z]+$"
+      }
+    }
+  }

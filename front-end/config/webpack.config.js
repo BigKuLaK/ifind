@@ -39,6 +39,8 @@ const reactRefreshOverlayEntry = require.resolve(
   'react-dev-utils/refreshOverlayInterop'
 );
 
+const { stylelintPlugin } = require('./stylelint.plugin');
+
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
@@ -735,8 +737,10 @@ module.exports = function (webpackEnv) {
                 'react/react-in-jsx-scope': 'error',
               }),
             },
+            plugins: ["@bem-react"]
           },
         }),
+      stylelintPlugin
     ].filter(Boolean),
     // Some libraries import Node modules but don't use them in the browser.
     // Tell webpack to provide empty mocks for them so importing them works.

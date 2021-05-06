@@ -1,9 +1,27 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const path = require('path');
 
 const paths = require('../config/paths');
 
+const { stylelintPlugin } = require('../config/stylelint.plugin');
+
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+
+const emitErrorsAsWarnings = process.env.ESLINT_NO_DEV_ERRORS === 'true';
+const hasJsxRuntime = (() => {
+  if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
+    return false;
+  }
+
+  try {
+    require.resolve('react/jsx-runtime');
+    return true;
+  } catch (e) {
+    return false;
+  }
+})();
 
 module.exports = {
   "stories": [
@@ -40,7 +58,8 @@ module.exports = {
 
     // SASS support.
     // Extracted from config/webpack.config.js
-    config.module.rules.push({
+    config.module.rules.push(
+      {
       test: sassRegex,
       use: [
         require.resolve('style-loader'),
