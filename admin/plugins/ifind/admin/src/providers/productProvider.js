@@ -39,10 +39,15 @@ fragment ProductDataFragment on Product {
     product_attribute {
       id
       name
+      custom_formula
+      data_type
     }
     rating
     points
     enabled
+    use_custom_formula
+    min
+    max
   }
   final_rating
   created_at

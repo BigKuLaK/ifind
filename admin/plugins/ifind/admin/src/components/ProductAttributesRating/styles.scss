@@ -36,6 +36,17 @@ $light-gray: #eee;
   }
 
   .attribute-rating {
+    &__toggle {
+      label {
+        display: flex;
+      }
+
+      span {
+        width: 40px;
+        font-size: 11px;
+      }
+    }
+
     &__input {
       margin-top: 0;
     }
@@ -44,6 +55,42 @@ $light-gray: #eee;
       td:nth-child(n + 3) {
         opacity: 0.2;
         pointer-events: none;
+      }
+
+      svg {
+        fill: white;
+      }
+    }
+
+    &__formula-toggle {
+      position: relative;
+
+      .ifind-icon {
+        margin-right: 0;
+        width: 10px;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(10px);
+      }
+
+      &::after {
+        transition: all .15s;
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        content: attr(data-tip);
+        background: black;
+        color: white;
+        padding: 5px 10px;
+        opacity: 0;
+        visibility: hidden;
+        white-space: nowrap;
+        margin-top: -10px;
       }
     }
   }
