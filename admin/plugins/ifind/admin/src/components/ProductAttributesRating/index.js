@@ -95,7 +95,7 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
         }
       });
 
-      const finalRating = Number((10 * totalRating / totalPoints).toFixed(2));
+      const finalRating = Number((10 * totalRating / (totalPoints || 1)).toFixed(2));
       setTotalRating(finalRating);
 
       if ( typeof onFinalRatingChange === 'function' ) {
