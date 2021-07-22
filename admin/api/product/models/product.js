@@ -1,6 +1,6 @@
 'use strict';
 
-const { removeURLParams } = appRequire('helpers/url');
+const { removeURLParams, amazonLink } = appRequire('helpers/url');
 const { getProductDetails } = appRequire('helpers/product');
 
 /**
@@ -53,6 +53,11 @@ const processProductData = async (data, id) => {
         data.price = productDetails.price;
         data.image = productDetails.image;
       }
+    })(),
+
+    // Add Affiliate links
+    (async() => {
+      data.amazon_url = amazonLink(data.amazon_url);
     })(),
   ]);
 

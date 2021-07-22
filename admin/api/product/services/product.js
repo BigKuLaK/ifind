@@ -28,6 +28,10 @@ module.exports = {
 
     // Granchildren categories
     const endpointCategories = await extractEndpointCategories(categoryTree);
+
+    // Ensure categories are sorted by order
+    endpointCategories.sort((catA, catB) => catA.order >= catB.order ? 1 : -1);
+
     const productsLists = await Promise.all((
       endpointCategories.map(async (category) => (
         {

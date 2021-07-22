@@ -3662,3 +3662,37 @@
 	font-weight: bold;
 	background-color:$white;
 }
+
+.loading-container {
+	height: 500px;
+	width: 100%;
+}
+
+/*=============================
+	Loading Icon CSS
+===============================*/
+    .loading {
+	    text-align: center;
+    }
+
+    .loading-icon {
+        margin-top: 19%;
+        margin-left: 43%;
+	    height: 150px;
+	    pointer-events: none;
+    }
+  
+    @media (prefers-reduced-motion: no-preference) {
+	    .loading-icon {
+	        animation: loading-icon-spin infinite 1.5s linear;
+	    }
+    }
+  
+    @keyframes loading-icon-spin {
+	    from {
+	        transform: rotate(0deg);
+	    }
+	    to {
+	        transform: rotate(360deg);
+	    }
+     }

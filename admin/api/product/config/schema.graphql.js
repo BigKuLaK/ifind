@@ -9,6 +9,7 @@ module.exports = {
     type ProductCategory {
       label: ComponentAtomsTranslateableLabel
       id: ID!
+      order: Int
     }
     type NaturalList {
       category: ProductCategory

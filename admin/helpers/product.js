@@ -39,7 +39,7 @@ const getProductDetails = async (productURL, language) => {
     '#HLCXComparisonJumplink_feature_div',
     '.caretnext',
   ];
-  const priceSelector = '#priceblock_ourprice';
+  const priceSelector = '#priceblock_ourprice, [data-action="show-all-offers-display"] .a-color-price';
   const imageSelector = '#landingImage[data-old-hires]';
   const titleSelector = '#title';
 

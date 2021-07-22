@@ -33,7 +33,7 @@ module.exports = {
   async categoryTree(language = null) {
     // Will use to select label for categories
     const matchedLanguage = await strapi.services.language.findOne({
-      code: language
+      code: language,
     });
 
     // Get categories sorted by order

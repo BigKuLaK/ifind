@@ -121,6 +121,21 @@
         }
     }
 
+    .num-of-elements {
+        align-items: right;
+        text-align: center;
+        margin-left: auto;
+        font-size: 10px;
+        font-weight: bold;
+        height: 20px;
+        line-height: 16px;
+        width: 20px;
+        color: $white;
+        background-color: $red;
+        border: 2px solid $red;
+        border-radius: 10px;
+    }
+
 
     &__sub-list {
         a {

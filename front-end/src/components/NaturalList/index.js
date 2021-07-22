@@ -54,40 +54,45 @@ const NaturalList = ({ items = [], loading = false, category, observeItem, id, l
             {currentRouteConfig.path === '/' ? null :
                 <>
                     <div className="natural-list__separator" ref={itemRef} data-category={id}>
-                        <strong>{label}</strong>
+                        {label.toUpperCase()}
+                        <div className="natural-list__mfd">Q1/2021</div>
                     </div>
-                    <div className="natural-list__mfd">Q1/2021</div>
                 </>
             }
-            {loading && <span className="loading"><img src={icon} className="loading-icon" alt="icon" /></span>}
-            <div className="natural-list__content" >
-                {!loading && (
-                    <ul className="natural-list__grid">
-                        <li className="natural-list__item">
-                            {
-                                activeProduct &&
-                                <ProductDetails
-                                    productData={activeProduct}
-                                    detailsHTML={detailsHTML}
-                                    urlList={activeProduct?.url_list}
-                                    title={activeProduct.title}
-                                    isLoading={isDetailsLoading}
-                                />
-                            }
+            {currentRouteConfig.path === '/findtube' ? null : (
+                <>
+                    {loading && <span className="loading"><img src={icon} className="loading-icon" alt="icon" /></span>}
+                    <div className="natural-list__content" >
+                        {!loading && (
+                            <ul className="natural-list__grid">
+                                <li className="natural-list__item">
+                                    {
+                                        activeProduct &&
+                                        <ProductDetails
+                                            productData={activeProduct}
+                                            detailsHTML={detailsHTML}
+                                            urlList={activeProduct?.url_list}
+                                            title={activeProduct.title}
+                                            isLoading={isDetailsLoading}
+                                        />
+                                    }
 
-                        </li>
-                        {items.map((item, index) => (
-                            <Item
-                                {...item}
-                                active={activeProduct && activeProduct.id === item.id}
-                                withBadge={index === 0}
-                                onClick={() => onProductClick(item)}
-                                key={item.id}
-                            />
-                        ))}
-                    </ul>
-                )}
-            </div>
+                                </li>
+                                {items.map((item, index) => (
+                                    <Item
+                                        {...item}
+                                        active={activeProduct && activeProduct.id === item.id}
+                                        withBadge={index === 0}
+                                        onClick={() => onProductClick(item)}
+                                        key={item.id}
+                                    />
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                </>
+            )
+            }
         </div>
     )
 };

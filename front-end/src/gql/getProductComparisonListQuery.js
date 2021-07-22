@@ -9,6 +9,7 @@ query ProductComparisonList {
                 id
                 label
             }
+            order
         }
         products {
             id

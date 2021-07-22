@@ -8,6 +8,7 @@ import NaturalList from '@components/NaturalList';
 
 const ProductComparison = () => {
   const { productComparisonList } = useProductComparison();
+  // const [isLoading, setIsLoading] = useState(true);
 
   const { setActiveCategory } = useContext(GlobalStateContext);
   let options = {
@@ -35,6 +36,13 @@ const ProductComparison = () => {
       observerRef.current.unobserve(e);
     }
   }, [observerRef]);
+
+  // useEffect(() => {
+  //   if (productComparisonList) {
+  //     setIsLoading(false);
+  //   }
+  // }, [productComparisonList])
+
 
   return (
     <GeneralTemplate>
