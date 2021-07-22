@@ -1,19 +1,38 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { Toggle, Button } from '@buffetjs/core';
+import { Toggle, Button, InputText } from '@buffetjs/core';
 import { Tooltip } from '@buffetjs/styles';
 
 import RatingWarpsControl from '../RatingWarpsControl';
 import NumberInput from '../NumberInput';
 import IFINDIcon from '../IFINDIcon';
 import AttributeMinMaxInput from '../AttributeMinMaxInput';
+import TextInput from '../TextInput';
 
 const RATING_INCREMENTS = 0.5;
 
-const AttributeRating = ({ product_attribute, factor, rating = 0, points, enabled, custom_formula, use_custom_formula, data_type, min, max, onChange, itemKey }) => {
+const applyCustomFormula = (customFormula = '', data) => {
+  const formulaWithData = Object.entries(data).reduce((updatedFormula, [ key, data ]) => (
+    updatedFormula.replace(new RegExp(key, 'g'), data)
+  ), customFormula);
+
+  const computedRating = eval(formulaWithData);
+
+  // Ensure rating is >= 0 and <= 10
+  if ( computedRating <= 0 ) {
+    return 0;
+  }
+  else if ( computedRating >= 10 ) {
+    return 10
+  }
+
+  return computedRating;
+}
+
+const AttributeRating = ({ product_attribute, factor, rating = 0, points, enabled, custom_formula, use_custom_formula, data_type, min, max, onChange, productData }) => {
   const onItemChange = useCallback((changes) => {
     if ( typeof onChange === 'function' ) {
-      onChange({
+      const newData = {
         product_attribute,
         factor,
         rating,
@@ -21,11 +40,24 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
         enabled,
         custom_formula,
         use_custom_formula,
+        min,
+        max,
         ...changes,
-      });
+      };
+
+      // Use custom formula if selected
+      if ( newData.use_custom_formula && newData.custom_formula && newData.min && newData.max ) {
+        newData.rating = applyCustomFormula(newData.custom_formula, {
+          ...newData,
+          ...productData,
+        })
+      }
+
+      onChange(newData);
     }
   }, [
     onChange,
+    productData,
     product_attribute,
     factor,
     rating,
@@ -33,6 +65,8 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
     enabled,
     custom_formula,
     use_custom_formula,
+    min,
+    max,
   ]);
 
   const onRatingChange = useCallback((newRating) => {
@@ -62,8 +96,8 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
   }, [ onItemChange, use_custom_formula ]);
 
   const onMinMaxChange = useCallback((minMax) => {
-    console.log({ minMax });
-  }, []);
+    onItemChange(minMax);
+  }, [ onItemChange ]);
 
   const classNames = [
     'attribute-rating',
@@ -87,6 +121,7 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
           onChange={value => onRatingChange(value)}
           max={10}
           step={RATING_INCREMENTS}
+          disabled={use_custom_formula}
         />
       </td>
       <td>
@@ -98,9 +133,10 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
         <Button
           className='attribute-rating__formula-toggle'
           color={ use_custom_formula ? 'primary' : 'cancel' }
-          data-tip={ use_custom_formula ? 'Using custom function' : 'Using normal computation' }
+          data-tip={ use_custom_formula ? 'Using custom formula' : 'Using normal computation' }
           icon={<IFINDIcon icon='function' />}
           onClick={toggleUseCustomFormula}
+          disabled={custom_formula ? false : true}
         />
       </td>
       <td>{factor}</td>
@@ -108,12 +144,15 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
     </tr>,
     use_custom_formula && enabled ? (
       <tr>
-        <td colSpan='3' />
-        <td colSpan='2'>
-          <AttributeMinMaxInput value={min} type={data_type} onChange={(value => onMinMaxChange({ value, max }))} />
-          <AttributeMinMaxInput value={max} type={data_type} onChange={(value => onMinMaxChange({ min, value }))} />
+        <td colSpan='7'>
+          <div className='attribute-rating__custom-formula'>
+            <TextInput label='Custom Formula' className='attribute-rating__formula-preview' value={custom_formula} disabled />
+            <div className='attribute-rating__min-max'>
+              <AttributeMinMaxInput label='Min' value={min} type={data_type} onChange={(min => onMinMaxChange({ min, max }))} />
+              <AttributeMinMaxInput label='Max' value={max} type={data_type} onChange={(max => onMinMaxChange({ min, max }))} />
+            </div>
+          </div>
         </td>
-        <td colSpan='2'></td>
       </tr>
     ) : null
   ]

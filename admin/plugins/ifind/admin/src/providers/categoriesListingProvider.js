@@ -46,6 +46,8 @@
     product_attribute {
       id
       name
+      custom_formula
+      data_type
     }
     factor
   }

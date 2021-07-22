@@ -93,5 +93,35 @@ $light-gray: #eee;
         margin-top: -10px;
       }
     }
+
+    &__custom-formula {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+      padding-left: 40px;
+
+      .input-block {
+        margin-top: 0;
+      }
+
+      label {
+        text-transform: uppercase;
+        font-size: .6em;
+        color: #333;
+      }
+    }
+
+    &__formula-preview {
+      
+    }
+
+    &__min-max {
+      display: flex;
+      justify-content: space-between;
+
+      .attribute-min-max-input {
+        width: calc((100% - 20px) / 2);
+      }
+    }
   }
 }

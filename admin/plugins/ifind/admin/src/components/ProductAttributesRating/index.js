@@ -8,7 +8,7 @@ import AttributeRating from './attribute-rating';
 
 import './styles.scss';
 
-const ProductAttributesRating = ({ category, attributesRatings = [], onAttributesChange, onFinalRatingChange, className }) => {
+const ProductAttributesRating = ({ category, productData, attributesRatings = [], onAttributesChange, onFinalRatingChange, className }) => {
   const { categories } = useCategoriesListing();
   const { productAttributes } = useProductAttributes();
   const [ attrsDetails, setAttrsDetails ] = useState([]);
@@ -50,8 +50,6 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
         attrRating.product_attribute.id === attrWithFactor.product_attribute.id
       ));
 
-      console.log({ attrWithFactor, matchedProductRating });
-
       // Apply rating and id if there is any from product's rating
       if ( matchedProductRating ) {
         attrWithFactor.id = matchedProductRating.id;
@@ -60,8 +58,6 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
         attrWithFactor.use_custom_formula = matchedProductRating.use_custom_formula;
         attrWithFactor.min = matchedProductRating.min;
         attrWithFactor.max = matchedProductRating.max;
-        attrWithFactor.data_type = attrWithFactor.product_attribute?.data_type || 'number';
-        attrWithFactor.custom_formula = attrWithFactor.product_attribute?.custom_formula || '';
       }
       // Else, apply defaults
       else {
@@ -69,6 +65,10 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
         attrWithFactor.rating = 0;
         attrWithFactor.enabled = true;
       }
+
+      // Add other attribute props
+      attrWithFactor.data_type = attrWithFactor.product_attribute?.data_type || 'number';
+      attrWithFactor.custom_formula = attrWithFactor.product_attribute?.custom_formula || '';
 
       // Add itemKey
       attrWithFactor.itemKey = matchedProductRating?.itemKey || uuid();
@@ -137,6 +137,7 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
                 {...attrRating}
                 key={attrRating.itemKey}
                 itemKey={attrRating.itemKey}
+                productData={productData}
                 onChange={changedRating => onAttrRatingChange(changedRating)}
                 />
             ))

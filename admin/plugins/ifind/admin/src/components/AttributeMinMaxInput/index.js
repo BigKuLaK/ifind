@@ -4,15 +4,16 @@ import { DatePicker, Label } from '@buffetjs/core';
 
 import NumberInput from '../NumberInput';
 
-// number
-// date_time
+import './styles.scss';
 
-const AttributeMinMaxInput = ({ value, type, onChange }) => {
+const AttributeMinMaxInput = ({ label, value, type, onChange }) => {
   if ( type === 'number' ) {
     return (
       <NumberInput
+        label={label}
         value={value}
         onChange={onChange}
+        className='attribute-min-max-input'
       />
     )
   }
