@@ -85,7 +85,6 @@ module.exports = {
       await processProductData(data);
     },
     async beforeUpdate(params, data) {
-      console.log({ params, data });
       await processProductData(data, params.id);
     },
     async afterCreate(result, data) {

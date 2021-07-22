@@ -79,7 +79,7 @@ $position: Int
 $amazon_url: String!
 $price: Float
 $final_rating: Float
-$release_date: Date
+$release_date: DateTime
 `;
 
 export const productMutationCommonInput = `

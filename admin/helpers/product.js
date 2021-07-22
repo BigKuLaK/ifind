@@ -19,8 +19,6 @@ const getProductDetails = async (productURL, language, scrapePriceOnly = false) 
     return null;
   }
 
-  console.log({ scrapePriceOnly });
-
   const scrapedData = {};
 
   const urlWithLanguage = addURLParams(productURL, { language });

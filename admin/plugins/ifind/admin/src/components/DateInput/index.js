@@ -14,8 +14,7 @@ const DateInput = ({ name, value, label, onChange, className }) => {
   ].filter(Boolean).join(' ');
 
   const onDateChange = useCallback((momentDate) => {
-    if ( typeof onChange === 'function' ) {
-      console.log('release date', momentDate.toISOString());
+    if ( typeof onChange === 'function' && momentDate ) {
       onChange(momentDate.toISOString());
     }
   }, [ onChange ]);

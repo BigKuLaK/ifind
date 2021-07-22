@@ -76,7 +76,7 @@
       "collection": "product-change"
     },
     "release_date": {
-      "type": "date"
+      "type": "datetime"
     }
   }
 }

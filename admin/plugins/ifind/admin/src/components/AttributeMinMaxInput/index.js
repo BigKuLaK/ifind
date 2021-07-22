@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { DatePicker, Label } from '@buffetjs/core';
 
 import NumberInput from '../NumberInput';
+import DateInput from '../DateInput';
 
 import './styles.scss';
 
@@ -18,7 +17,14 @@ const AttributeMinMaxInput = ({ label, value, type, onChange }) => {
     )
   }
   else {
-    return null;
+    return (
+      <DateInput
+        label={label}
+        value={value}
+        onChange={onChange}
+        className='attribute-min-max-input'
+      />
+    )
   }
 };
 

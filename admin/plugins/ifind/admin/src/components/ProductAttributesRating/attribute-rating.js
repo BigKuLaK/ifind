@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { Toggle, Button, InputText } from '@buffetjs/core';
-import { Tooltip } from '@buffetjs/styles';
+import { Toggle, Button } from '@buffetjs/core';
+import moment from 'moment';
 
 import RatingWarpsControl from '../RatingWarpsControl';
 import NumberInput from '../NumberInput';
@@ -11,10 +11,29 @@ import TextInput from '../TextInput';
 
 const RATING_INCREMENTS = 0.5;
 
-const applyCustomFormula = (customFormula = '', data) => {
-  const formulaWithData = Object.entries(data).reduce((updatedFormula, [ key, data ]) => (
-    updatedFormula.replace(new RegExp(key, 'g'), data)
-  ), customFormula);
+const applyCustomFormula = (customFormula = '', data, dataType = 'number') => {
+  const today = moment.utc();
+
+  const formulaWithData = Object.entries(data).reduce((updatedFormula, [ key, data ]) => {
+    let processedData = data;
+
+    if ( dataType === 'date_time' ) {
+      switch (key) {
+        case 'max':
+        case 'min':
+        case 'release_date':
+          // Compute days from today to min/max/release_date
+          const millisecondsAgo = today.valueOf() - moment.utc(data).valueOf();
+          processedData = Math.floor(millisecondsAgo / 1000 / 60 / 60 / 24);
+          processedData = !isNaN(processedData) ? processedData : 0;
+          break;
+        default:;
+      }
+    }
+
+    const substitutedFormula = updatedFormula.replace(new RegExp(key, 'g'), processedData);
+    return substitutedFormula;
+  }, customFormula);
 
   const computedRating = eval(formulaWithData);
 
@@ -46,11 +65,11 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
       };
 
       // Use custom formula if selected
-      if ( newData.use_custom_formula && newData.custom_formula && newData.min && newData.max ) {
+      if ( newData.use_custom_formula && newData.custom_formula && newData.max ) {
         newData.rating = applyCustomFormula(newData.custom_formula, {
           ...newData,
           ...productData,
-        })
+        }, product_attribute.data_type);
       }
 
       onChange(newData);

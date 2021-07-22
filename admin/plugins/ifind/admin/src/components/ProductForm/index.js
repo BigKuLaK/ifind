@@ -332,9 +332,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
           id='release_date'
           name='release_date'
           value={releaseDate}
-          onChange={(value) => console.log({
-            releaseDate: value
-          })}
+          onChange={(value) => setReleaseDate(value)}
         />
 
         {/* Clicks Count */}

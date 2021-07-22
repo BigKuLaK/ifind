@@ -49,8 +49,6 @@ const ProductDetail = () => {
 
     setFormErrors(errors);
 
-    console.log({ productFormData });
-
     // Don't save if validation fails
     if ( !success ) {
       return;
