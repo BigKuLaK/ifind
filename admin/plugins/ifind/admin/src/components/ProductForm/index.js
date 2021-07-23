@@ -293,7 +293,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
 
         {/* Amazon URL */}
         <TextInput
-          className="col-md-10"
+          className="col-md-12"
           error={formErrors.amazon_url}
           label='Amazon URL'
           id='amazon-url'
@@ -303,7 +303,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
         />
 
         {/* Generate Amazon link with tag */}
-        <InputBlock className='col-md-2'>
+        {/* <InputBlock className='col-md-2'>
           <Label>&nbsp;</Label>
           <Button
             data-for="amazon-url-tag"
@@ -313,7 +313,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
             onClick={generateAmazonLink}
           />
           <Tooltip id='amazon-url-tag' />
-        </InputBlock>
+        </InputBlock> */}
 
         {/* Position */}
         <NumberInput
