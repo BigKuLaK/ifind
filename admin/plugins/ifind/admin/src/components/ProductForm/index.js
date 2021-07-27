@@ -16,6 +16,7 @@ import RegionSelect from '../RegionSelect';
 import TextInput from '../TextInput';
 import NumberInput from '../NumberInput';
 import ProductAttributesRating from '../ProductAttributesRating';
+import DateInput from '../DateInput';
 
 import './styles.scss';
 
@@ -27,7 +28,6 @@ const _websiteTabOptions = [
 
 const ProductForm = ({ product, setProductFormData, formErrors }) => {
   const [ websiteTabOptions ] = useState(_websiteTabOptions);
-  const { productAttributes } = useProductAttributes();
 
   // Read-only fields
   const [ id, setId ] = useState(null);
@@ -46,15 +46,16 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
   const [ amazonURL, setAmazonURL ] = useState('');
   const [ price, setPrice ] = useState('');
   const [ detailsHTML, setDetailsHTML ] = useState('');
+  const [ releaseDate, setReleaseDate ] = useState('');
   const [ productURLs, setProductURLs ] = useState([]); // Initial data for ProductURLInput
   const [ attrsRating, setAttrsRating ] = useState([]);
   const [ finalRating, setFinalRating ] = useState(0); // Don't pass into ProductAttributesRating
 
   // Meta states
   const [ createdOn, setCreatedOn ] = useState('');
-  const [ createdBy, setCreatedBy ] = useState('');
+  // const [ createdBy, setCreatedBy ] = useState('');
   const [ lastModified, setLastModified ] = useState('');
-  const [ lastModifiedBy, setLastModifiedBy ] = useState('');
+  // const [ lastModifiedBy, setLastModifiedBy ] = useState('');
 
   const collectFormData = useCallback(() => {
     return {
@@ -72,6 +73,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
       region,
       attrsRating,
       finalRating,
+      releaseDate,
     }
   }, [
     id,
@@ -88,6 +90,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
     region,
     attrsRating,
     finalRating,
+    releaseDate,
   ]);
 
   const processFormData = useCallback((formData) => {
@@ -112,12 +115,21 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
         rating: attrRating.rating,
         id: attrRating.id,
         factor: attrRating.factor,
+        min: attrRating.min,
+        max: attrRating.max,
+        use_custom_formula: attrRating.use_custom_formula,
+        enabled: attrRating.enabled,
       }));
     }
 
     // Process final_rating
     if ( formData.finalRating ) {
       formData.final_rating = formData.finalRating;
+    }
+    
+    // Process release_date
+    if ( formData.releaseDate ) {
+      formData.release_date = formData.releaseDate;
     }
 
     // Format Position
@@ -132,6 +144,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
     delete formData.urlList;
     delete formData.attrsRating;
     delete formData.finalRating;
+    delete formData.releaseDate;
 
     return formData;
   }, []);
@@ -175,6 +188,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
       setPrice(product.price);
       setDetailsHTML(product.details_html);
       setRegion(product.region?.id);
+      setReleaseDate(product.release_date);
 
       // Format product url list to match ProductURLInput
       setProductURLs((product.url_list || []).map(urlData => ({
@@ -237,6 +251,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
     region,
     attrsRating,
     finalRating,
+    releaseDate,
   ]);
 
   return (
@@ -278,7 +293,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
 
         {/* Amazon URL */}
         <TextInput
-          className="col-md-10"
+          className="col-md-12"
           error={formErrors.amazon_url}
           label='Amazon URL'
           id='amazon-url'
@@ -288,7 +303,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
         />
 
         {/* Generate Amazon link with tag */}
-        <InputBlock className='col-md-2'>
+        {/* <InputBlock className='col-md-2'>
           <Label>&nbsp;</Label>
           <Button
             data-for="amazon-url-tag"
@@ -298,11 +313,11 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
             onClick={generateAmazonLink}
           />
           <Tooltip id='amazon-url-tag' />
-        </InputBlock>
+        </InputBlock> */}
 
         {/* Position */}
         <NumberInput
-          className='col-md-6'
+          className='col-md-4'
           label='Position'
           id='position'
           name='position'
@@ -310,9 +325,19 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
           onChange={(value) => setPosition(value)}
         />
 
+        {/* Release Date */}
+        <DateInput
+          className='col-md-4'
+          label='Release Date'
+          id='release_date'
+          name='release_date'
+          value={releaseDate}
+          onChange={(value) => setReleaseDate(value)}
+        />
+
         {/* Clicks Count */}
         <NumberInput
-          className='col-md-6'
+          className='col-md-4'
           label='Clicks Count'
           id='clicks-count'
           name='clicks-count'
@@ -388,6 +413,10 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
       <Panel title='General Product Attributes' className="product-form__panel product-form__panel--gen-prod-attrs">
         <ProductAttributesRating
           category={category}
+          productData={{
+            price,
+            release_date: releaseDate,
+          }}
           attributesRatings={attrsRating}
           onChange={onProductAttrsChange}
           onAttributesChange={onProductAttrsChange}

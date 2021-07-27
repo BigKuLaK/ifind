@@ -23,6 +23,17 @@
       "type": "boolean",
       "default": true,
       "required": false
+    },
+    "data_type": {
+      "type": "enumeration",
+      "enum": [
+        "number",
+        "date_time"
+      ],
+      "default": "number"
+    },
+    "custom_formula": {
+      "type": "string"
     }
   }
 }

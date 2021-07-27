@@ -74,6 +74,9 @@
     "product_changes": {
       "via": "product",
       "collection": "product-change"
+    },
+    "release_date": {
+      "type": "datetime"
     }
   }
 }

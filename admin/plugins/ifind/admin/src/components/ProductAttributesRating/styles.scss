@@ -36,14 +36,92 @@ $light-gray: #eee;
   }
 
   .attribute-rating {
+    &__toggle {
+      label {
+        display: flex;
+      }
+
+      span {
+        width: 40px;
+        font-size: 11px;
+      }
+    }
+
     &__input {
       margin-top: 0;
+      min-width: 70px;
     }
 
     &--disabled {
       td:nth-child(n + 3) {
         opacity: 0.2;
         pointer-events: none;
+      }
+
+      svg {
+        fill: white;
+      }
+    }
+
+    &__formula-toggle {
+      position: relative;
+
+      .ifind-icon {
+        margin-right: 0;
+        width: 10px;
+      }
+
+      &:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(10px);
+      }
+
+      &::after {
+        transition: all .15s;
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        content: attr(data-tip);
+        background: black;
+        color: white;
+        padding: 5px 10px;
+        opacity: 0;
+        visibility: hidden;
+        white-space: nowrap;
+        margin-top: -10px;
+      }
+    }
+
+    &__custom-formula {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+      padding-left: 40px;
+
+      .input-block {
+        margin-top: 0;
+      }
+
+      label {
+        text-transform: uppercase;
+        font-size: .6em;
+        color: #333;
+      }
+    }
+
+    &__formula-preview {
+      
+    }
+
+    &__min-max {
+      display: flex;
+      justify-content: space-between;
+
+      .attribute-min-max-input {
+        width: calc((100% - 20px) / 2);
       }
     }
   }

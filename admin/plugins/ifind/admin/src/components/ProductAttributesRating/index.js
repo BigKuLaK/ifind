@@ -1,101 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { Toggle } from '@buffetjs/core';
+import { v4 as uuid } from 'uuid';
 
 import { useCategoriesListing } from '../../providers/categoriesListingProvider';
 import { useProductAttributes } from '../../providers/productAttributesProvider';
-import RatingWarpsControl from '../RatingWarpsControl';
 import RatingWarps from '../RatingWarps';
-import NumberInput from '../NumberInput';
-
-const RATING_INCREMENTS = 0.5;
+import AttributeRating from './attribute-rating';
 
 import './styles.scss';
 
-const AttributeRating = ({ product_attribute, factor, rating = 0, points, enabled, onChange }) => {
-  const onItemChange = useCallback((changes) => {
-    if ( typeof onChange === 'function' ) {
-      onChange({
-        product_attribute,
-        factor,
-        rating,
-        points,
-        enabled,
-        ...changes,
-      });
-    }
-  }, [
-    onChange,
-    product_attribute,
-    factor,
-    rating,
-    points,
-    enabled,
-  ]);
-
-  const onRatingChange = useCallback((newRating) => {
-    if ( typeof onChange === 'function' ) {
-      const rating = Number(Number(newRating).toFixed(3));
-      const normalizedRating = rating >= 10 ? 10 :
-                               rating <= 0 ? 0 :
-                               rating;
-
-      onItemChange({
-        rating: normalizedRating,
-        points: Number(factor) * rating,
-      });
-    }
-  }, [ onItemChange ]);
-
-  const onEnabledChange = useCallback((isEnabled) => {
-    onItemChange({
-      enabled: isEnabled,
-    });
-  }, [ onItemChange ]);
-
-  const classNames = [
-    'attribute-rating',
-    !enabled ? 'attribute-rating--disabled' : '',
-  ].filter(Boolean).join(' ');
-
-  return (
-    <tr className={classNames}>
-      <td>
-        <Toggle
-          onChange={({ target: { value } }) => onEnabledChange(value)}
-          value={enabled}
-        />
-      </td>
-      <td><strong>{product_attribute.name}</strong></td>
-      <td>
-        <NumberInput
-          className="attribute-rating__input"
-          value={Number(rating.toFixed(2))}
-          onChange={value => onRatingChange(value)}
-          max={10}
-          step={RATING_INCREMENTS}
-        />
-      </td>
-      <td>
-        <RatingWarpsControl
-          rating={rating}
-          onChange={newRating => onRatingChange(newRating)} />
-      </td>
-      <td>{factor}</td>
-      <td>{Number(points.toFixed(2))}</td>
-    </tr>
-  )
-};
-
-AttributeRating.propTypes = {
-  enabled: PropTypes.bool,
-};
-
-AttributeRating.defaultProps = {
-  enabled: true,
-};
-
-const ProductAttributesRating = ({ category, attributesRatings = [], onAttributesChange, onFinalRatingChange, className }) => {
+const ProductAttributesRating = ({ category, productData, attributesRatings = [], onAttributesChange, onFinalRatingChange, className }) => {
   const { categories } = useCategoriesListing();
   const { productAttributes } = useProductAttributes();
   const [ attrsDetails, setAttrsDetails ] = useState([]);
@@ -142,6 +55,9 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
         attrWithFactor.id = matchedProductRating.id;
         attrWithFactor.rating = matchedProductRating.rating;
         attrWithFactor.enabled = matchedProductRating.enabled;
+        attrWithFactor.use_custom_formula = matchedProductRating.use_custom_formula;
+        attrWithFactor.min = matchedProductRating.min;
+        attrWithFactor.max = matchedProductRating.max;
       }
       // Else, apply defaults
       else {
@@ -149,6 +65,13 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
         attrWithFactor.rating = 0;
         attrWithFactor.enabled = true;
       }
+
+      // Add other attribute props
+      attrWithFactor.data_type = attrWithFactor.product_attribute?.data_type || 'number';
+      attrWithFactor.custom_formula = attrWithFactor.product_attribute?.custom_formula || '';
+
+      // Add itemKey
+      attrWithFactor.itemKey = matchedProductRating?.itemKey || uuid();
 
       // Compute points
       attrWithFactor.points = Number(attrWithFactor.rating) * Number(attrWithFactor.factor);
@@ -172,7 +95,7 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
         }
       });
 
-      const finalRating = Number((10 * totalRating / totalPoints).toFixed(2));
+      const finalRating = Number((10 * totalRating / (totalPoints || 1)).toFixed(1));
       setTotalRating(finalRating);
 
       if ( typeof onFinalRatingChange === 'function' ) {
@@ -203,6 +126,7 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
           <th>Attribute</th>
           <th>Rating</th>
           <th></th>
+          <th></th>
           <th>Factor</th>
           <th>Points</th>
         </thead>
@@ -211,7 +135,9 @@ const ProductAttributesRating = ({ category, attributesRatings = [], onAttribute
             attrsDetails.map(attrRating => (
               <AttributeRating
                 {...attrRating}
-                key={attrRating.product_attribute.id}
+                key={attrRating.itemKey}
+                itemKey={attrRating.itemKey}
+                productData={productData}
                 onChange={changedRating => onAttrRatingChange(changedRating)}
                 />
             ))

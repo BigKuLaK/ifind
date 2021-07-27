@@ -1,4 +1,16 @@
-const AMAZON_TAG = 'ifind01-21';
+// AMAZON AFFILIATE
+const AMAZON_AFFILIATE_PARAMS = {
+  tag: 'ifind01-21',
+};
+
+// EBAY AFFILIATE
+// https://www.ebay.de/itm/223840934857?mkcid=1&mkrid=707-53477-19255-0&siteid=77&campid=5338787715&customid=&toolid=10001&mkevt=1
+const EBAY_AFFILIATE_PARAMS = {
+  campid: '5338787715',
+  mkevt: 1,
+  mkcid: 1,
+  toolid: 10001,
+};
 
 const addURLParams = (url = '', paramsObject) => {
   const [ baseURL, searchParams = '' ] = url.split('?');
@@ -23,6 +35,20 @@ const removeURLParams = (url = '') => {
 
   segments.push(nonSearchSegment);
   return segments.join('/');
+}
+
+const paramsToObject = (paramsString = '') => {
+  const searchParamsObj = paramsString.split('&').reduce((obj, param) => {
+    const [ key, value ] = param.split('=');
+
+    if ( key && value ) {
+      obj[key] = value;
+    }
+
+    return obj;
+  }, {});
+
+  return searchParamsObj;
 }
 
 const toSearchParams = (paramsObject = {}) => {
@@ -52,7 +78,18 @@ const amazonLink = (originalLink = '') => {
 
   return baseURL + toSearchParams({
     ...searchParamsObj,
-    tag: AMAZON_TAG
+    ...AMAZON_AFFILIATE_PARAMS
+  });
+}
+
+const ebayLink = (originalLink = '') => {
+  // Remove unnecessary params
+  const [ baseURL, queryParams ] = originalLink.split('?');
+  const queryParamsObj = paramsToObject(queryParams);
+
+  return baseURL + toSearchParams({
+    ...queryParamsObj,
+    ...EBAY_AFFILIATE_PARAMS,
   });
 }
 
@@ -60,4 +97,5 @@ module.exports = {
   addURLParams,
   removeURLParams,
   amazonLink,
+  ebayLink,
 };

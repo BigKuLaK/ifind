@@ -22,8 +22,8 @@
       "type": "datetime"
     },
     "product": {
-      "model": "product",
-      "via": "product_changes"
+      "via": "product_changes",
+      "model": "product"
     }
   }
 }

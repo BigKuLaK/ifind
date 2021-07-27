@@ -14,10 +14,12 @@ const startBrowser = async () => {
   });
 }
 
-const getProductDetails = async (productURL, language) => {
+const getProductDetails = async (productURL, language, scrapePriceOnly = false) => {
   if ( !productURL ) {
     return null;
   }
+
+  const scrapedData = {};
 
   const urlWithLanguage = addURLParams(productURL, { language });
   // Use english page in order to parse price without having to account for other currencies
@@ -43,49 +45,47 @@ const getProductDetails = async (productURL, language) => {
   const imageSelector = '#landingImage[data-old-hires]';
   const titleSelector = '#title';
 
-  await detailPage.goto(urlWithLanguage, { timeout: TIMEOUT })
-  await detailPage.waitForSelector(productSectionSelector, { timeout: TIMEOUT });
+  // Scrape for all details if applicable
+  if ( !scrapePriceOnly ) {
+    await detailPage.goto(urlWithLanguage, { timeout: TIMEOUT })
+    await detailPage.waitForSelector(productSectionSelector, { timeout: TIMEOUT });
 
-  const detailPageHTML = await detailPage.$eval(productSectionSelector, detailContents => detailContents.outerHTML);
+    const detailPageHTML = await detailPage.$eval(productSectionSelector, detailContents => detailContents.outerHTML);
 
-  console.log('Page parsed');
+    console.log('Page parsed');
 
-  const dom = new JSDOM(detailPageHTML);
-  const titleElement = dom.window.document.querySelector(titleSelector);
-  const imageElement = dom.window.document.querySelector(imageSelector);
-  const detailElement = dom.window.document.querySelector(detailSelector);
+    const dom = new JSDOM(detailPageHTML);
+    const titleElement = dom.window.document.querySelector(titleSelector);
+    const imageElement = dom.window.document.querySelector(imageSelector);
+    const detailElement = dom.window.document.querySelector(detailSelector);
+
+    scrapedData.title = titleElement ? titleElement.textContent.trim() : '';
+    scrapedData.image = imageElement && imageElement.getAttribute('data-old-hires');
+
+    const allSelectorsToRemove = selectorsToRemove.join(',');
+    [...detailElement.querySelectorAll(allSelectorsToRemove)].forEach(element => {
+      try {
+        element.remove();
+      }
+      catch (err) { /**/ }
+    });
+    scrapedData.details_html = detailElement.outerHTML;
+  }
 
   // Go to english site for price
   await detailPage.goto(englishPageURL, { timeout: TIMEOUT })
   await detailPage.waitForSelector(priceSelector, { timeout: TIMEOUT });
 
-  const price = await detailPage.$eval(priceSelector, priceElement => {
+  scrapedData.price = await detailPage.$eval(priceSelector, priceElement => {
     let price = priceElement && priceElement.textContent.match(/[0-9.,]+/);
-    return price && price[0] || 0;
+    return price && price[0].replace(',', '') || 0;
   });
 
   await browser.close();
 
-  const title = titleElement ? titleElement.textContent.trim() : '';
-  const image = imageElement && imageElement.getAttribute('data-old-hires');
-
-  const allSelectorsToRemove = selectorsToRemove.join(',');
-  [...detailElement.querySelectorAll(allSelectorsToRemove)].forEach(element => {
-    try {
-      element.remove();
-    }
-    catch (err) { /**/ }
-  });
-  const details_html = detailElement.outerHTML;
-
   console.log('Contents queried.');
 
-  return {
-    details_html,
-    price,
-    title,
-    image,
-  };
+  return scrapedData;
 }
 
 /**

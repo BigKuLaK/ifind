@@ -10,14 +10,14 @@ const AttributesTable = ({ attributes }) => {
             <thead>
                 <tr>
                     <th>Attribute</th>
-                    <th colspan="2">Rating</th>
+                    <th colSpan="2">Rating</th>
                     <th>Factor</th>
                     <th>Points</th>
                 </tr>
             </thead>
             <tbody>
                 {attributes.map((attribute, index) => (
-                    <tr>
+                    <tr key={attribute.product_attribute.name}>
                         <td><strong>{attribute.product_attribute.name}</strong></td>
                         <td>{attribute.rating}</td>
                         <td><RatingWarps rating={attribute.rating} /></td>

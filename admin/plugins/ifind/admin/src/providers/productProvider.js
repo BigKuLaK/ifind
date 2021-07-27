@@ -16,6 +16,7 @@ fragment ProductDataFragment on Product {
   amazon_url
   price
   details_html
+  release_date
   url_list {
     source {
       id
@@ -39,10 +40,15 @@ fragment ProductDataFragment on Product {
     product_attribute {
       id
       name
+      custom_formula
+      data_type
     }
     rating
     points
     enabled
+    use_custom_formula
+    min
+    max
   }
   final_rating
   created_at
@@ -73,6 +79,7 @@ $position: Int
 $amazon_url: String!
 $price: Float
 $final_rating: Float
+$release_date: DateTime
 `;
 
 export const productMutationCommonInput = `
@@ -86,6 +93,7 @@ url_list: $url_list
 position: $position
 attrs_rating: $attrs_rating
 final_rating: $final_rating
+release_date: $release_date
 `;
 
 export const updateProductMutation = `

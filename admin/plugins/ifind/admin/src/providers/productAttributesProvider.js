@@ -6,6 +6,8 @@ query GetProductsAttributes {
   productAttributes {
     id
     name
+    custom_formula
+    data_type
   }
 }
 `;

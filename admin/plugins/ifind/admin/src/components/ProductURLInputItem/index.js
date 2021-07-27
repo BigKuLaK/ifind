@@ -89,26 +89,16 @@ const ProductURLInputItem = ({ source, region, url, price, onChange, onDelete, s
           value={priceInput}
         />
       </InputBlock>
-      <InputBlock className="col-md-5">
+      <InputBlock className="col-md-6">
         <Label>URL</Label>
         <InputText
           onChange={({ target: { value }}) => onURLInput(value)}
           value={urlInput}
         />
       </InputBlock>
-      <InputBlock className="col-md-2">
+      <InputBlock className="col-md-1">
         <Label>&nbsp;</Label>
         <div className="product-url-input__item-controls">
-          <Button
-            data-for={`tooltip-${fieldID}`}
-            data-tip={`Generate ${sourceName} link`}
-            className="product-url-input__item-link"
-            color="secondary"
-            icon={<FontAwesomeIcon icon="link" />}
-            onClick={generateLink}
-          >
-            <Tooltip id={`tooltip-${fieldID}`} />
-          </Button>
           <Button
             className="product-url-input__item-delete"
             color="cancel"
