@@ -48,6 +48,8 @@
       name
       custom_formula
       data_type
+      disable_min
+      disable_max
     }
     factor
   }

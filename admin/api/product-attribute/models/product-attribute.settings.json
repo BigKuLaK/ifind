@@ -34,6 +34,14 @@
     },
     "custom_formula": {
       "type": "string"
+    },
+    "disable_min": {
+      "type": "boolean",
+      "default": false
+    },
+    "disable_max": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

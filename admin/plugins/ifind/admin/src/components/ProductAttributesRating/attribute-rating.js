@@ -48,7 +48,21 @@ const applyCustomFormula = (customFormula = '', data, dataType = 'number') => {
   return computedRating;
 }
 
-const AttributeRating = ({ product_attribute, factor, rating = 0, points, enabled, custom_formula, use_custom_formula, data_type, min, max, onChange, productData }) => {
+const AttributeRating = ({
+  product_attribute,
+  factor,
+  rating = 0,
+  points,
+  enabled,
+  custom_formula,
+  use_custom_formula,
+  data_type,
+  min,
+  max,
+  onChange,
+  productData,
+}) => {
+
   const onItemChange = useCallback((changes) => {
     if ( typeof onChange === 'function' ) {
       const newData = {
@@ -63,6 +77,11 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
         max,
         ...changes,
       };
+
+      // Use today's for max if release
+      if ( /release/i.test(product_attribute.name) ) {
+        newData.max = moment.utc().subtract(3, 'years').toISOString();
+      }
 
       // Use custom formula if selected
       if ( newData.use_custom_formula && newData.custom_formula && newData.max ) {
@@ -92,6 +111,10 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
     min,
     max,
   ]);
+
+  const onProductDataUpdate = useCallback(() => {
+    onItemChange({});
+  }, [ onItemChange ]);
 
   const onRatingChange = useCallback((newRating) => {
     if ( typeof onChange === 'function' ) {
@@ -127,6 +150,10 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
     'attribute-rating',
     !enabled ? 'attribute-rating--disabled' : '',
   ].filter(Boolean).join(' ');
+
+  useEffect(() => {
+    onProductDataUpdate();
+  }, [ productData ]);
 
   return [
     <tr className={classNames}>
@@ -172,8 +199,8 @@ const AttributeRating = ({ product_attribute, factor, rating = 0, points, enable
           <div className='attribute-rating__custom-formula'>
             <TextInput label='Custom Formula' className='attribute-rating__formula-preview' value={custom_formula} disabled />
             <div className='attribute-rating__min-max'>
-              <AttributeMinMaxInput label='Min' value={min} type={data_type} onChange={(min => onMinMaxChange({ min, max }))} />
-              <AttributeMinMaxInput label='Max' value={max} type={data_type} onChange={(max => onMinMaxChange({ min, max }))} />
+              <AttributeMinMaxInput label='Min' disabled={product_attribute.disable_min} value={min} type={data_type} onChange={(min => onMinMaxChange({ min, max }))} />
+              <AttributeMinMaxInput label='Max' disabled={product_attribute.disable_max} value={max} type={data_type} onChange={(max => onMinMaxChange({ min, max }))} />
             </div>
           </div>
         </td>

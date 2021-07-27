@@ -5,7 +5,7 @@ import DateInput from '../DateInput';
 
 import './styles.scss';
 
-const AttributeMinMaxInput = ({ label, value, type, onChange }) => {
+const AttributeMinMaxInput = ({ label, value, type, onChange, disabled }) => {
   if ( type === 'number' ) {
     return (
       <NumberInput
@@ -13,6 +13,7 @@ const AttributeMinMaxInput = ({ label, value, type, onChange }) => {
         value={value}
         onChange={onChange}
         className='attribute-min-max-input'
+        disabled={disabled}
       />
     )
   }
@@ -23,6 +24,7 @@ const AttributeMinMaxInput = ({ label, value, type, onChange }) => {
         value={value}
         onChange={onChange}
         className='attribute-min-max-input'
+        disabled={disabled}
       />
     )
   }

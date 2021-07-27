@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 
 import InputBlock from '../InputBlock';
 
-const DateInput = ({ name, value, label, onChange, className }) => {
+const DateInput = ({ name, value, label, onChange, className, disabled }) => {
   const [ nameAttribute ] = useState(name ? name : `date-picker-${uuid()}`);
 
   const classNames = [
@@ -29,6 +29,7 @@ const DateInput = ({ name, value, label, onChange, className }) => {
         value={value}
         onChange={({ target }) => onDateChange(target.value)}
         className='date-input__date-picker'
+        disabled={disabled}
       />
     </InputBlock>
   )

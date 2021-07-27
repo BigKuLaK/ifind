@@ -36,6 +36,9 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
   // Product URL Input Data
   const [ urlList, setUrlList ] = useState([]);
 
+  // Product Attributes Rating additional data
+  const [ trimmedProductData, setTrimmedProductData ] = useState({});
+
   // Field states
   const [ websiteTab, setWebsiteTab ] = useState('home');
   const [ region, setRegion ] = useState(null);
@@ -235,6 +238,13 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
   }, [ product ]);
 
   useEffect(() => {
+    setTrimmedProductData({
+      price,
+      release_date: releaseDate || ''
+    });
+  }, [ price, releaseDate ]);
+
+  useEffect(() => {
     onChange();
   }, [
     id,
@@ -325,16 +335,6 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
           onChange={(value) => setPosition(value)}
         />
 
-        {/* Release Date */}
-        <DateInput
-          className='col-md-4'
-          label='Release Date'
-          id='release_date'
-          name='release_date'
-          value={releaseDate}
-          onChange={(value) => setReleaseDate(value)}
-        />
-
         {/* Clicks Count */}
         <NumberInput
           className='col-md-4'
@@ -413,16 +413,25 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
       <Panel title='General Product Attributes' className="product-form__panel product-form__panel--gen-prod-attrs">
         <ProductAttributesRating
           category={category}
-          productData={{
-            price,
-            release_date: releaseDate,
-          }}
+          productData={trimmedProductData}
           attributesRatings={attrsRating}
           onChange={onProductAttrsChange}
           onAttributesChange={onProductAttrsChange}
           onFinalRatingChange={onFinalRatingChange}
           className="col-md-12"
         />
+      </Panel>
+
+      <Panel title='Other Data' className='product-form__panel product-form__panel--gen-prod-attrs'>
+          {/* Release Date */}
+          <DateInput
+            className='col-md-4'
+            label='Release Date'
+            id='release_date'
+            name='release_date'
+            value={releaseDate}
+            onChange={(value) => setReleaseDate(value)}
+          />
       </Panel>
 
       <Panel className="product-form__panel product-form__panel--sidebar" title="Image Preview">
