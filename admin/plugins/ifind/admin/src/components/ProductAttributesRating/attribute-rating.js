@@ -59,8 +59,6 @@ const AttributeRating = ({
         newData.rating = Number(Number(newData.rating).toFixed(1));
       }
 
-      console.log('newData.rating', newData.rating, product_attribute.name);
-
       onChange({
         ...newData,
         product_attribute,

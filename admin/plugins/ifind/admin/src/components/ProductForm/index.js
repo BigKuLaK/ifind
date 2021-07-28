@@ -151,7 +151,6 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
   }, []);
 
   const onProductAttrsChange = useCallback((newRatings) => {
-    console.log('onProductAttrsChange', { newRatings });
     setAttrsRating(newRatings);
   }, []);
 

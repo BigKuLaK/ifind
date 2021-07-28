@@ -25,8 +25,6 @@ const ProductAttributesRating = ({ category, productData, attributesRatings = []
       attrDetail
     });
 
-    console.log('onAttrRatingChange', { changedAttrRating, newAttrDetails });
-
     if ( typeof onAttributesChange === 'function' ) {
       onAttributesChange(newAttrDetails);
     }

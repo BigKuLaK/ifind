@@ -75,11 +75,11 @@ const ProductDetail = () => {
 
     else {
       if ( redirectOnUpdate ) {
+        setRedirectOnUpdate(false);
         history.push('/plugins/ifind/products/' + newProductData.id);
       }
-      else {
-        setTitle(newProductData.title || '[ No Title ]');
-      }
+
+      setTitle(newProductData?.title || '[ No Title ]');
     }
 
     if ( isSaving ) {
@@ -99,22 +99,7 @@ const ProductDetail = () => {
     history.push('/plugins/ifind/products/create');
   }, []);
 
-  useEffect(() => {
-    onProductDataUpdate(productData);
-  }, [ productData ]);
-
-  useEffect(() => {
-    if ( error ) {
-      strapi.notification.toggle({
-        type: 'warning',
-        title: 'Error',
-        message: error.message,
-      });
-      setIsSaving(false);
-    }
-  }, [ error ]);
-
-  useEffect(() => {
+  const onProductFormUpdate = useCallback((productFormData) => {
     const rawProductData = productData || {};
 
     // Check if there are changes
@@ -162,7 +147,26 @@ const ProductDetail = () => {
     });
 
     setHasChanges(hasChanged);
-  }, [ productFormData, productData ]);
+  }, [ productData ]);
+
+  useEffect(() => {
+    onProductDataUpdate(productData);
+  }, [ productData ]);
+
+  useEffect(() => {
+    if ( error ) {
+      strapi.notification.toggle({
+        type: 'warning',
+        title: 'Error',
+        message: error.message,
+      });
+      setIsSaving(false);
+    }
+  }, [ error ]);
+
+  useEffect(() => {
+    onProductFormUpdate(productFormData);
+  }, [ productFormData ]);
 
   useEffect(() => {
     determineLoading();
