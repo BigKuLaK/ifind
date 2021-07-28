@@ -8,12 +8,13 @@ const Item = ({ active, image, title, withBadge, onClick }) => {
         <li className={itemClassnames.join(' ')} onClick={onClick}>
             <figure className="natural-list__figure">
 
-                { withBadge && (
+                {withBadge && (
                     <span className="natural-list__badge">Best Seller</span>
                 )}
 
-                <img className="img natural-list__image" src={image} alt={`${title}`} />
-                <figcaption className="natural-list__title">{title}</figcaption>
+                <img className="img natural-list__image" src={image} alt="" />
+                {/* <img className="img natural-list__image" src={image} alt={`${title}`} />
+                <figcaption className="natural-list__title">{title}</figcaption> */}
 
             </figure>
         </li>

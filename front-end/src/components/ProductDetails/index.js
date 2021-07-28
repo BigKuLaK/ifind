@@ -12,7 +12,8 @@ import './product-details.scss';
 import inlineStyles from './detail-styles';
 
 const ProductURLLink = ({ url, logo, price, isBase, basePrice, currency }) => {
-    const percentDifference = 100 * (price - basePrice ) / basePrice;
+
+    const percentDifference = 100 * (price - basePrice) / basePrice;
 
     return (
         <div className="product-details__link-item">
@@ -45,15 +46,6 @@ const ProductDetails = ({ productData, detailsHTML, title, urlList = [], isLoadi
         })))
 
     }, [productData]);
-
-    // useEffect(() => {
-    //     if (!isLoading) {
-    //         isLoading = true;
-    //     }
-    //     setTimeout(() => {
-    //         isLoading = false;
-    //     }, 8000);
-    // }, [isLoading])
 
     return (
         <div className="product-details">

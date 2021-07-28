@@ -5,7 +5,7 @@ import { useGlobalData } from '@contexts/globalDataContext';
 import routes, { footerRoutes } from '@config/routes';
 
 const mockInfoLinks = routes.filter(route => footerRoutes.includes(route.path));
-const logo = '/images/logo.png';
+const logo = '/images/ifindilu_new_logo.png';
 
 
 const Footer = () => {

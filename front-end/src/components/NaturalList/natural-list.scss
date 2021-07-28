@@ -207,4 +207,71 @@ $item-layout: (
         margin-left: 45em;
         color: $white;
     }
+
+    .left-arrow {
+        position: absolute;
+        text-align: center;
+        align-items: center;
+        line-height: 13px;
+        height: 17px;
+        padding-right: 5px;
+        padding-left: 4px;
+        margin-top: -32px;
+        margin-left: 4px;
+        background-color: $white;
+        border: 1px solid $gray-900; 
+
+        i {
+            font-weight: bolder;
+            margin-top: -1px;
+        }
+
+        &:hover {
+            background-color: $red;
+            color: $white
+        }
+    }
+    .right-arrow {
+        position: absolute;
+        text-align: center;
+        align-items: center;
+        line-height: 13px;
+        height: 17px;
+        padding-right: 4px;
+        padding-left: 5px;
+        margin-top: -32px;
+        margin-left: 1008px;
+        background-color: $white;
+        border: 1px solid $gray-900; 
+
+        i {
+            font-weight: bolder;
+            margin-top: -1px;
+        }
+
+        &:hover {
+            background-color: $red;
+            color: $white
+        }
+    }
+
+    &__price-cat {
+        display: flex;
+        position: absolute;
+        margin-top: -38px;
+        margin-left: 580pt;
+
+        button {
+            background-color: $white;
+            border: 5px solid $gray-900;
+            font-size: small;
+            font-weight: bold;
+            width: 35px;
+        }
+
+        button:hover {
+            background-color: $red;
+            color: $white
+        }
+    }
 }

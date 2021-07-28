@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="api_root" content="%REACT_APP_API_ROOT%">
-    <meta name="admin_api_root" content="%REACT_APP_ADMIN_API_ROOT%">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKT6JF4VR9"></script>
+  <meta name="api_root" content="%REACT_APP_API_ROOT%">
+  <meta name="admin_api_root" content="%REACT_APP_ADMIN_API_ROOT%">
 
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKT6JF4VR9"></script>
+
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -30,66 +28,67 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
-        rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+    rel="stylesheet">
 
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/magnific-popup.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/font-awesome.css">
-    <!-- Fancybox -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/jquery.fancybox.min.css">
-    <!-- Themify Icons -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/themify-icons.css">
-    <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/niceselect.css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/animate.css">
-    <!-- Flex Slider CSS -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/flex-slider.min.css">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/owl-carousel.css">
-    <!-- Slicknav -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/slicknav.min.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/magnific-popup.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/font-awesome.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/jquery.fancybox.min.css">
+  <!-- Themify Icons -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/themify-icons.css">
+  <!-- Nice Select CSS -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/niceselect.css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/animate.css">
+  <!-- Flex Slider CSS -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/flex-slider.min.css">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/owl-carousel.css">
+  <!-- Slicknav -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/slicknav.min.css">
 
-    <!-- Eshop StyleSheet -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/reset.css">
+  <!-- Eshop StyleSheet -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/reset.css">
 
-    <!-- <link rel="stylesheet" href="%PUBLIC_URL%/css/responsive.css"> -->
-    <title>iFINDilu</title>
+  <!-- <link rel="stylesheet" href="%PUBLIC_URL%/css/responsive.css"> -->
+  <title>iFINDilu</title>
 
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 
-  </head>
-  <body>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-SKT6JF4VR9', { 'anonymize_ip': true });
-    </script>
+</head>
 
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+<body>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-SKT6JF4VR9', { 'anonymize_ip': true });
+  </script>
+
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -100,8 +99,9 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css" />
-    <script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script>
-    <script>window.addEventListener("load", function () { window.wpcc.init({ "border": "thin", "corners": "small", "colors": { "popup": { "background": "#222222", "text": "#ffffff", "border": "#e6b3b3" }, "button": { "background": "#e6b3b3", "text": "#000000" } }, "content": { "message": "Diese Website verwendet eigene Cookies und Cookies von Dritten für Analysen und Werbung. Wenn Sie Ihren Besuch fortsetzen, stimmen Sie der Verwendung solcher Cookies zu. Alternativ können sie die Cookies unter den Link Datenschutzerklärung deaktivieren", "link": "http://dwut.de/datenschutz", "button": "Einverstanden" }, "position": "bottom" }) });</script>
-  </body>
+  <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css" />
+  <script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script>
+  <script>window.addEventListener("load", function () { window.wpcc.init({ "border": "thin", "corners": "small", "colors": { "popup": { "background": "#222222", "text": "#ffffff", "border": "#e6b3b3" }, "button": { "background": "#e6b3b3", "text": "#000000" } }, "content": { "message": "Diese Website verwendet eigene Cookies und Cookies von Dritten für Analysen und Werbung. Wenn Sie Ihren Besuch fortsetzen, stimmen Sie der Verwendung solcher Cookies zu. Alternativ können sie die Cookies unter den Link Datenschutzerklärung deaktivieren", "link": "http://dwut.de/datenschutz", "button": "Einverstanden" }, "position": "bottom" }) });</script>
+</body>
+
 </html>

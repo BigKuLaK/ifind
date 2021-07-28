@@ -7,7 +7,7 @@ import HeaderLanguageButton from './HeaderLanguageButton';
 
 import './header-middle.scss';
 
-const logo = '/images/logo.jpeg';
+const logo = '/images/ifindilu_new_logo.jpg';
 
 const HeaderMiddle = ({ onInterSect, onSubmit }) => {
     const { pathname } = useLocation();
