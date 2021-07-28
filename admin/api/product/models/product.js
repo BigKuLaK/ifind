@@ -2,6 +2,7 @@
 
 const { amazonLink, ebayLink } = appRequire('helpers/url');
 const { getProductDetails } = appRequire('helpers/product');
+const { applyCustomFormula } = appRequire('helpers/productAttribute');
 
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#lifecycle-hooks)
@@ -9,9 +10,15 @@ const { getProductDetails } = appRequire('helpers/product');
  */
 
 const processProductData = async (data, id) => {
-  const ebaySource = await strapi.services.source.findOne({
-    name_contains: 'ebay'
-  });
+  const [
+    ebaySource,
+    productAttributes,
+  ] = await Promise.all([
+    strapi.services.source.findOne({
+      name_contains: 'ebay'
+    }),
+    strapi.services['product-attribute'].find(),
+  ]);
 
   await Promise.all([
 
@@ -71,6 +78,25 @@ const processProductData = async (data, id) => {
       data.amazon_url = amazonLink(data.amazon_url);
     })(),
   ]);
+
+  // Recompute product attributes
+  // Needs to come after the scraper in order to pickup the scraped data
+  console.log(data.attrs_rating);
+  // data.attrs_rating = data.attrs_rating.map(attrRating => {
+  //   if ( attrRating.use_custom_formula ) {
+  //     const matchedProductAttribute = productAttributes.find(({ id }) => attrRating.product_attribute);
+
+  //     console.log({ matchedProductAttribute });
+
+  //     attrRating.rating = applyCustomFormula(
+  //       attrRating,
+  //       matchedProductAttribute,
+  //       data,
+  //     )
+  //   }
+
+  //   return attrRating;
+  // });
 
   return data;
 };

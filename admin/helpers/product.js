@@ -39,7 +39,6 @@ const getProductDetails = async (productData, language, scrapePriceOnly = false)
 
     // Scrape amazon
     (async () => {
-      console.log('Scraping Amazon');
       const detailPage = await browser.newPage();
       const productSectionSelector = '#dp-container';
       const priceSelector = '#priceblock_ourprice, [data-action="show-all-offers-display"] .a-color-price';
@@ -116,8 +115,6 @@ const getProductDetails = async (productData, language, scrapePriceOnly = false)
 
         // Extract ebay itemID
         const [ itemID ] = urlData.url.match(/[0-9]{9,12}/g) || [];
-
-        console.log({ itemID });
 
         if ( itemID ) {
           const res = await fetch(EBAY_GETITEM_ENDPOINT + itemID);

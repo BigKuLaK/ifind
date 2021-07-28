@@ -16,7 +16,6 @@ import RegionSelect from '../RegionSelect';
 import TextInput from '../TextInput';
 import NumberInput from '../NumberInput';
 import ProductAttributesRating from '../ProductAttributesRating';
-import DateInput from '../DateInput';
 
 import './styles.scss';
 
@@ -167,6 +166,7 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
   }, []);
 
   const onProductAttrsChange = useCallback((newRatings) => {
+    console.log('onProductAttrsChange', { newRatings });
     setAttrsRating(newRatings);
   }, []);
 
@@ -415,23 +415,10 @@ const ProductForm = ({ product, setProductFormData, formErrors }) => {
           category={category}
           productData={trimmedProductData}
           attributesRatings={attrsRating}
-          onChange={onProductAttrsChange}
           onAttributesChange={onProductAttrsChange}
           onFinalRatingChange={onFinalRatingChange}
           className="col-md-12"
         />
-      </Panel>
-
-      <Panel title='Other Data' className='product-form__panel product-form__panel--gen-prod-attrs'>
-          {/* Release Date */}
-          <DateInput
-            className='col-md-4'
-            label='Release Date'
-            id='release_date'
-            name='release_date'
-            value={releaseDate}
-            onChange={(value) => setReleaseDate(value)}
-          />
       </Panel>
 
       <Panel className="product-form__panel product-form__panel--sidebar" title="Image Preview">

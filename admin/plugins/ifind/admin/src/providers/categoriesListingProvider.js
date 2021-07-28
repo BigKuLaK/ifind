@@ -50,6 +50,9 @@
       data_type
       disable_min
       disable_max
+      max_label
+      min_label
+      product_prop
     }
     factor
   }
