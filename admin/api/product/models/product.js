@@ -81,22 +81,21 @@ const processProductData = async (data, id) => {
 
   // Recompute product attributes
   // Needs to come after the scraper in order to pickup the scraped data
-  console.log(data.attrs_rating);
-  // data.attrs_rating = data.attrs_rating.map(attrRating => {
-  //   if ( attrRating.use_custom_formula ) {
-  //     const matchedProductAttribute = productAttributes.find(({ id }) => attrRating.product_attribute);
+  data.attrs_rating = data.attrs_rating.map(attrRating => {
+    if ( attrRating.use_custom_formula ) {
+      const matchedProductAttribute = productAttributes.find(({ id }) => (
+        attrRating.product_attribute == id
+      ));
 
-  //     console.log({ matchedProductAttribute });
+      attrRating.rating = applyCustomFormula(
+        attrRating,
+        matchedProductAttribute,
+        data,
+      )
+    }
 
-  //     attrRating.rating = applyCustomFormula(
-  //       attrRating,
-  //       matchedProductAttribute,
-  //       data,
-  //     )
-  //   }
-
-  //   return attrRating;
-  // });
+    return attrRating;
+  });
 
   return data;
 };
