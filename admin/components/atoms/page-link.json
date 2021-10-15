@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_atoms_page_links",
+  "info": {
+    "name": "page_link",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "page": {
+      "model": "page"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
+}

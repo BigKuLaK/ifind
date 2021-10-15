@@ -1,0 +1,9 @@
+.json-preview {
+  padding: 10px;
+  overflow: auto;
+  background-color: lightblue;
+
+  .json-formatter-row .json-formatter-row {
+    margin-left: 20px;
+  }
+}

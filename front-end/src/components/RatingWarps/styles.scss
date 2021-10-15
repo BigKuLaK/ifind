@@ -1,0 +1,37 @@
+@import 'base/scss';
+
+.rating-warps {
+  --warp-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  height: var(--warp-size);
+
+  @include tablet {
+    --warp-size: 15px;
+  }
+  
+  &__warps {
+    display: flex;
+    flex-wrap: nowrap;
+    height: var(--warp-size);
+    overflow: hidden;
+    
+    &--fg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    &--bg {
+      opacity: .2;
+    }
+    
+    svg {
+      width: var(--warp-size);
+      height: var(--warp-size);
+      fill: red;
+      flex-shrink: 0;
+    }
+  }
+}

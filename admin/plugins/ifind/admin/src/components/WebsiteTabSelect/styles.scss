@@ -1,0 +1,11 @@
+.website-tab-select {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-left: 30px;
+
+  label {
+    margin-right: 5px;
+    white-space: nowrap;
+  }
+}

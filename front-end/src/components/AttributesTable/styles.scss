@@ -1,0 +1,27 @@
+@import 'base/scss';
+
+.attributes-table {
+    margin-bottom: 0;
+    font-size: 12px;
+
+    @include tablet {
+        font-size: 10px;
+    }
+
+    th {
+        background-color: silver;
+        text-transform: uppercase;
+        color: white;
+        padding: 5px;
+        font-weight: light;
+    }
+
+    td {
+        padding: 5px;
+        border-bottom: 1px solid #eee;
+
+        @include tablet {
+            padding: 4px 2px;
+        }
+    }
+}

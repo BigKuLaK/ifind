@@ -1,0 +1,11 @@
+/**
+  @param $color - The color map key
+*/
+@function color( $color ) {
+    @if map-has-key($colors, $color) {
+        @return map-get($colors, $color);
+    }
+    @else {
+        @error "$color does not exist in the $colors map. Please update in base/scss/config/colors.scss";
+    }
+}

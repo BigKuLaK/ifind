@@ -1,0 +1,32 @@
+.ti_icons {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 20px;
+    list-style: none;
+
+    &__icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 3px rgba(0,0,0,.3);
+        padding: 10px;
+    }
+
+    [class^="ti-"] {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+    }
+
+    &__name {
+        font-family: sans-serif;
+        font-size: 12px;
+        opacity: .5;
+    }
+}

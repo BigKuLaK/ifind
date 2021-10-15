@@ -1,0 +1,1 @@
+export type useGQLFetch = Function<function>

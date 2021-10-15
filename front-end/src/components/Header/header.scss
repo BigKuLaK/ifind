@@ -1,0 +1,17 @@
+@import 'base/scss';
+@import 'base/global';
+
+.header {
+    position: sticky;
+    top: -155px;
+    z-index: $z-index-nav;
+    transition: all 0.3s;
+
+    &--sticked {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    &---test {
+        display: block;
+    }
+}

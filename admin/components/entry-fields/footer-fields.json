@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_entry_fields_footer_fields",
+  "info": {
+    "name": "footer_fields",
+    "icon": "pencil-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "language": {
+      "unique": true,
+      "model": "language"
+    },
+    "footer_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "atoms.page-link"
+    },
+    "footer_text": {
+      "type": "text"
+    },
+    "footer_footnote": {
+      "type": "text"
+    },
+    "language_preview": {
+      "type": "string",
+      "private": true
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_atoms_product_issues",
+  "info": {
+    "name": "product_issues",
+    "icon": "list-ul"
+  },
+  "options": {},
+  "attributes": {
+    "amazon_link_invalid": {
+      "type": "boolean",
+      "default": false
+    },
+    "amazon_link_unavailable": {
+      "type": "boolean",
+      "default": false
+    },
+    "ebay_link_invalid": {
+      "type": "boolean",
+      "default": false
+    },
+    "aliexpress_link_invalid": {
+      "type": "boolean",
+      "default": false
+    },
+    "idealo_link_invalid": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

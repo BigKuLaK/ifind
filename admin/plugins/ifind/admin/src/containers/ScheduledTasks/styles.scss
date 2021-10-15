@@ -1,0 +1,11 @@
+.product-validator {
+  &__status {
+    strong {
+      text-transform: uppercase;
+    }
+  }
+
+  &__logs {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,31 @@
+.rating-warps-control {
+  display: flex;
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    overflow: hidden;
+    border: 1px solid currentColor;
+
+    &[disabled] {
+      opacity: .3;
+      cursor: not-allowed;
+    }
+
+    &--add {
+      color: green;
+    }
+
+    &--subtract {
+      color: red;
+    }
+  }
+
+  .rating-warps {
+    margin: 0 10px;
+  }
+}

@@ -1,0 +1,11 @@
+.product-filters {
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  padding: 20px 0;
+
+  button[type="submit"] {
+    margin-top: 25px;
+  }
+}

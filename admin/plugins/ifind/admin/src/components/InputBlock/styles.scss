@@ -1,0 +1,44 @@
+.input-block {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+
+  &--error {
+    select,
+    input {
+      box-shadow: 0 0 0 1px red;
+    }
+  }
+
+  label {
+    width: 100%;
+
+    // BuffetJS input
+    + * {
+      width: 100%;
+    }
+  }
+}
+
+.input-error {
+  height: 0;
+  position: relative;
+  z-index: 10;
+  margin-top: 2px;
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    padding: 15px 5px 5px;
+    color: white;
+    font-size: 10px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 2px;
+    right: 0;
+  }
+}

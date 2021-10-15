@@ -1,0 +1,21 @@
+.icons-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 20px;
+}
+
+.icons-list__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icons-list__name {
+  color: gray;
+  margin-top: 10px;
+}
+
+.ifind-icon {
+  width: 30px;
+  height: 30px;
+}

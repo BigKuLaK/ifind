@@ -1,0 +1,2 @@
+export const country = ["US", "DE", "ES", "RU", "FR", "IT", "PH"];
+export const labels = { "US": "English", "DE": "Deutsch", "ES": "Español", "RU": "Pусский", "FR": "Français", "IT": "Italiano", "PH": "Filipino" };

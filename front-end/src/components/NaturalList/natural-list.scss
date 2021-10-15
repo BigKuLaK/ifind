@@ -1,0 +1,967 @@
+@import "base/scss";
+@import 'base/global';
+
+$item-layout: (
+    3: (
+        column-start: 11,
+        row-start: 6,
+    ),
+    4: (
+        column-start: 9,
+        row-start: 7,
+    ),
+);
+
+.natural-list {
+    position: relative;
+    margin-top: 49px;
+
+    & + & {
+        margin-top: 50px;
+    }
+
+    /*=============================
+	Loading Icon CSS
+    ===============================*/
+    .loading {
+	    text-align: center;
+
+        .loading-icon {
+            margin-top: 38%;
+            margin-left: 39%;
+            height: 150px;
+            pointer-events: none;
+
+            @include small_desktop {
+                margin-top: 35%;
+                margin-left: 37%;
+                height: 130px;
+             }
+
+            @include laptop {
+                margin-top: 36%;
+                margin-left: 36%;
+                height: 120px;
+            }
+
+            @include xl_mobile {
+                margin-top: 30%;
+                margin-left: 25%;
+                height: 110px;
+            }
+
+            @include large_mobile {
+                margin-top: 26%;
+                margin-left: 41%;
+                height: 105px;
+            }
+        }
+    
+        @media (prefers-reduced-motion: no-preference) {
+            .loading-icon {
+                animation: loading-icon-spin infinite 1.5s linear;
+            }
+        }
+    
+        @keyframes loading-icon-spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+         }
+    }
+
+    &__content {
+        padding-top: calc(100% * 8 / 13);
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(13, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        grid-gap: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        direction: rtl;
+        padding: 5px;
+        background-color: color(gray);
+
+        @include xxl_mobile {
+            grid-template-columns: repeat(16, 1fr);
+            grid-template-rows: repeat(24, 1fr);
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid color(mustard);
+        position: relative;
+        direction: ltr;
+        background-color: color(white);
+        transition: all .3s;
+        box-shadow: none;
+
+        // Show only first product title
+        &:nth-child(n + 3) {
+            .natural-list__title {
+                display: none;
+            }
+        }
+
+        // Border, activates when item is clicked
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: none;
+            pointer-events: none;
+            z-index: 1;
+            transition: all .3s;
+        }
+
+        // Active state
+        &--active {
+            &::after {
+                box-shadow: inset 0 0 0 10px color(mustard);
+            }
+
+            .natural-list__title {
+                color: color(white);
+                background-color: color(mustard);
+            }
+        }
+
+        // Golden ratio items logic
+        
+        @for $i from 1 through 6 {
+            $fib-num: fibonacci(8 - $i); // Get item from reversed fib
+
+            &:nth-child(#{$i}) {
+                grid-column-end: span #{$fib-num};
+                grid-row-end: span #{$fib-num};
+
+                @if map-has-key($item-layout, $i ) {
+                    $item-layout: map-get($item-layout, $i );
+
+                    @if map-has-key($item-layout, 'column-start') {
+                        grid-column-start: map-get($item-layout, 'column-start');
+                    }
+
+                    @if map-has-key($item-layout, 'row-start') {
+                        grid-row-start: map-get($item-layout, 'row-start');
+                    }
+                }
+            }
+
+            @include xxl_mobile {
+                &:nth-child(1) {
+                    display: none;
+                }
+    
+                &:nth-child(2) {
+                    grid-column-start: 9;
+                    grid-row-start: 1;
+                    grid-column-end: span 8;
+                    grid-row-end: span 24;
+                }
+    
+                &:nth-child(3) {
+                    grid-column-start: 1;
+                    grid-row-start: 15;
+                    grid-column-end: span 8;
+                    grid-row-end: span 10;
+                }
+    
+                &:nth-child(4) {
+                    grid-column-start: 1;
+                    grid-row-start: 1;
+                    grid-column-end: span 4;
+                    grid-row-end: span 14;
+                }
+    
+                &:nth-child(5) {
+                    grid-column-start: 5;
+                    grid-row-start: 1;
+                    grid-column-end: span 4;
+                    grid-row-end: span 7;
+                }
+    
+                &:nth-child(6) {
+                    grid-column-start: 5;
+                    grid-row-start: 8;
+                    grid-column-end: span 4;
+                    grid-row-end: span 7;
+                }
+            }
+        }
+    }
+
+    &__badge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 32px;
+        padding: 5px 10px;
+        color: color(white);
+        background-color: color(mustard);
+
+        &::after {
+            content: '';
+            display: block;
+            border-top: 16px solid color(mustard);
+            border-left: 10px solid color(mustard);
+            border-right: 10px solid transparent;
+            border-bottom: 16px solid transparent;
+            margin-right: -30px;
+        }
+    }
+
+    &__figure {
+        width: calc(100% - 10px);
+        height: calc(100% - 10px);
+        margin-bottom: 0;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+    &__title {
+        display: flex;
+        position: absolute;
+        bottom: 5%;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(color(white), .8);
+        text-align: left;
+        align-items: left;
+        align-content: left;
+        transition: all .3s;
+    }
+
+    &__separator {
+        position: absolute;
+        font-size: 15px;
+        margin-top: -49px;
+        text-align: center;
+        text-shadow: 2px 1px 3px rgb(214, 214, 214);
+        height: 48px;
+        width: 100%;
+        line-height: 47px;
+        color: $white;
+        background-color: $gray-900;
+        border: 1px solid $gray-900;
+        border-radius: 4px;
+        cursor: default;
+
+        @include desktop {
+           .label {
+               margin-left: -100pt;
+           }
+        }
+
+        @include small_desktop {
+            .label {
+                margin-left: -115pt;
+            }
+        }
+
+        @include laptop {
+            .label {
+                margin-left: -145pt;
+                font-size: 12px;
+            }
+        }
+
+        @include tablet {
+            .label {
+                margin-left: -155pt;
+                font-size: 12px;
+            }
+        }
+
+        @include xl_mobile {
+            .label {
+                margin-left: -160pt;
+                font-size: 11px;
+            }
+        }
+
+        @include large_mobile {
+            .label {
+                font-size: 9px;
+            }
+
+            .label-2 {
+                font-size: 12px;
+            }
+        }
+
+        @include mobile {
+            .label-2 {
+                font-size: 10px;
+            }
+        }
+
+        .ellipsis {
+            display: none;
+            position: absolute;
+            display: flex;
+            align-items: left;
+            top: 15px;
+            height: 20px;
+            width: 20px;
+            font-size: 10px;
+            color: white;
+
+            @include xs_tablet {
+                margin-left: 25.6rem;
+            }
+
+            @include xxl_mobile {
+                margin-left: 23.7rem;
+            }
+
+            @include xl_mobile {
+                margin-left: 22.5rem;
+            }
+
+            @include large_mobile {
+                margin-left: 19rem;
+            }
+
+            @include mobile {
+                margin-left: 17rem;
+            }
+
+            @include sm_mobile {
+                margin-left: 14rem;
+            }
+
+            @include small_mobile {
+                margin-left: 13rem;
+            }
+
+            i {
+                display: none;
+                //display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 1px;
+                margin-left: 8px;
+                font-size: 15px;
+            }
+
+            // &:hover {
+            //     background-color: $red;
+            // }
+
+            // &.active {
+            //     background-color: $red;
+            // }
+        }
+
+        .price-option {
+            display: none;
+            position: relative;
+            top: -12px;
+            left: 77.2%;
+            height: 79px;
+            width: 82px;
+            background-color: $gray-200;
+            border: 1px solid black;
+            border-radius: 4px;
+            z-index: 12;
+
+            @include xxl_mobile {
+                left: 80%;
+                height: 81px;
+                width: 84px;
+            }
+
+            @include large_mobile {
+                height: 81px;
+                width: 84px;
+            }
+
+            @include mobile {
+                top: -13px;
+            }
+
+            @include sl_mobile {
+                left: 80.5%;
+                height: 73px;
+                width: 69px;
+            }
+
+            @include sm_mobile {
+                left:75%;
+            }
+
+            @include small_mobile {
+                left: 65%;
+            }
+            
+           button {
+                display: flex;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: center;
+                margin-top: 1px;
+                margin-left: 1px;
+                height: 25px;
+                width: 80px;
+                font-size: 12px;
+                font-weight: 900;
+                background-color: $gray-300;
+                border: 1px solid black;
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: $red;
+                    color: $white;
+                }
+
+                @include sl_mobile {
+                    font-size: 10px;
+                    height: 22px;
+                    width: 65px;
+                }
+           }
+        }
+    }
+
+    &__mfd {
+        justify-content: center;
+        align-items: right;
+        font-size: 15px;
+        text-shadow: 2px 1px 3px rgb(214, 214, 214);
+        margin-top: -48px;
+        margin-left: 68rem;
+        color: $white;
+
+        @include desktop {
+            margin-top: -47px;
+            margin-left: 60rem;
+        }
+
+        @include small_desktop {
+            margin-left: 60rem;
+        }
+
+        @include large_laptop {
+            margin-left: 50rem;
+        }
+
+        @include laptop {
+            margin-top: -48px;
+            margin-left: 48rem;
+            font-size: 12px;
+        }
+
+        @include small_laptop {
+            margin-top: -48px;
+            margin-left: 35rem;
+            font-size: 12px;
+        }
+
+        @include tablet {
+            margin-top: -47px;
+            margin-left: 32rem;
+            font-size: 12px;
+        }
+
+        @include ms_tablet {
+            margin-left: 30rem;
+            font-size: 12px;
+        }
+
+        @include mxs_tablet {
+            margin-left: 29rem;
+        }
+
+        @include xs_tablet {
+            margin-top: -48px;
+            margin-left: 26rem;
+            font-size: 11px;
+        }
+
+        @include xl_mobile {
+            margin-left: 24rem;
+        }
+
+        @include large_mobile {
+            margin-top: -48px;
+            margin-left: 19.5rem;
+            font-size: 10px;
+        }
+
+        @include mobile {
+            margin-left: 17.5rem;
+            font-size: 10px;
+        }
+    }
+
+    .left-arrow {
+        display: none;
+        position: absolute;
+        margin-top: -34px;
+        margin-left: 6px;
+        cursor: pointer;
+        color: $gray-300;
+
+        i {
+            font-size: 20px;
+        }
+
+        &:hover {
+            color: $red;
+        }
+
+        @include laptop {
+            margin-top: -36px;
+            margin-left: 4px;
+
+            i {
+                font-size: 15px;
+            }
+        }
+        
+    }
+    .right-arrow {
+        display: none;
+        position: absolute;
+        margin-top: -34px;
+        margin-left: 79.7rem;
+        cursor: pointer;
+        color: $gray-300;
+
+        i {
+            font-size: 20px;
+        }
+
+        &:hover {
+            color: $red;
+        }
+
+        @include desktop {
+            margin-left: 68.5rem;   
+        }
+
+        @include small_desktop {
+            margin-left: 68.5rem;   
+        }
+
+        @include large_laptop {
+            margin-left: 57.3rem;
+        }
+
+        @include laptop {
+            margin-top: -36px;
+            margin-left: 57.5rem;
+
+            i {
+                font-size: 15px;
+            }
+        }
+
+        @include small_laptop {
+            margin-top: -36px;
+            margin-left: 42.6rem;
+
+            i {
+                font-size: 15px;
+            }
+        }
+
+        @include tablet {
+            margin-top: -36px;
+            margin-left: 37.8rem;
+
+            i {
+                font-size: 15px;
+            }
+        }
+
+        @include ms_tablet {
+            margin-left: 36.5rem;
+        }
+
+        @include mxs_tablet {
+            margin-left: 33.7rem;
+        }
+
+        @include xs_tablet {
+            margin-left: 32.2rem;
+        }
+
+        @media screen and (max-width: 530px) {
+            margin-left: 31.6rem;
+        }
+
+        @media screen and (max-width: 520px) {
+            margin-left: 31rem;
+        }
+
+        @media screen and (max-width: 510px) {
+            margin-left: 30.4rem;
+        }
+
+        @include xxl_mobile {
+            margin-left: 28.7rem;
+        }
+
+        @include xl_mobile {
+            margin-left: 28.1rem;
+        }
+
+        @media screen and (max-width: 460px) {
+            margin-left: 26.9rem;
+        }
+
+        @media screen and (max-width: 450px) {
+            margin-left: 26.3rem;
+        }
+
+        @media screen and (max-width: 440px) {
+            margin-left: 25.5rem;
+        }
+
+        @media screen and (max-width: 430px) {
+            margin-left: 25rem;
+        }
+
+        @media screen and (max-width: 420px) {
+            margin-left: 24.4rem;
+        }
+
+        @include large_mobile {
+            margin-left: 23.8rem;
+        }
+
+        @media screen and (max-width: 411px) {
+            margin-left: 23.5rem;
+        }
+
+        @include mobile {
+            margin-left: 21.3rem;
+        }
+
+        @include sl_mobile {
+            margin-left: 20.3rem;
+        }
+
+        @include sm_mobile {
+            margin-left: 17.8rem;
+        }
+
+        @include small_mobile {
+            margin-top: -35px;
+            margin-left: 15.3rem;
+        }
+    }
+
+    &__price-cat {
+        display: none;
+        margin:0;
+        padding:0;
+        position:absolute;
+        left: 55rem;
+        top: -36px;
+        list-style:none;
+
+        @include desktop {
+            margin-left: -130pt;
+        }
+
+        @include small_desktop {
+            margin-top: 2px;
+            margin-left: -100pt;
+        }
+
+        @include large_laptop {
+            margin-top: 2px;
+            margin-left: -200pt;
+        }
+
+        @include laptop {
+            margin-left: -215pt;
+            flex-shrink: 0;
+        }
+
+        @include small_laptop {
+            margin-top: 2px;
+            margin-left: -360pt;
+        }
+
+        @include tablet {
+            margin-left: -400pt;
+        }
+
+        @include ms_tablet {
+            margin-left: -420pt;
+        }
+
+        @include mxs_tablet {
+            margin-left: -440pt;
+        }
+
+        @include xs_tablet {
+            margin-top: 3px;
+            margin-left: -470pt;
+        }
+
+        @include xl_mobile {
+            margin-left: -490pt;
+        }
+
+        @include large_mobile {
+            margin-left: -540pt;
+        }
+
+        @include mobile {
+            margin-left: -570pt;
+        }
+
+        i {
+            color: white;
+            font-size: 20px;
+        }
+    }
+
+    &__price-cat button {
+        display: none;
+        float: left;
+        height: 24px;
+        line-height: 22px;
+        position: relative;
+        font-size: 11px;
+        font-weight: bolder;
+
+        @include small_desktop {
+            height: 20px;
+            line-height: 18px;
+            font-size: 9px;
+        }
+
+        @include xs_tablet {
+            height: 18.3px;
+            line-height: 15px;
+            font-size: 8px;
+        }
+        
+        @include large_mobile {
+            top: 3px;
+            height: 15px;
+            line-height: 12px;
+            font-size: 6px;
+        }
+    }
+
+    &__price-cat button {
+        display: none;
+        margin-left: 20px;
+        padding: 0 20px 0 12px;
+        background: $gray-300;
+        color: black;
+        text-decoration: none;
+        -moz-border-radius-bottomright: 2px;
+        -webkit-border-bottom-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        -moz-border-radius-topright: 2px;
+        -webkit-border-top-right-radius: 2px;
+        border-top-right-radius: 2px;
+        
+        -webkit-box-shadow: 1px 3px 3px 1px rgba(0,0,0,0.5);
+        -moz-box-shadow: 1px 3px 3px 1px rgba(0,0,0,0.5);
+        box-shadow: 1px 3px 3px 1px rgba(0,0,0,0.5);
+
+        @include small_desktop {
+            padding: 0 18px 0 10px;
+            margin-left: 15px;
+            -webkit-box-shadow: 0.5px 1.5px 1.5px 0.5px rgba(0,0,0,0.5);
+            -moz-box-shadow: 0.5px 1.5px 1.5px 0.5px rgba(0,0,0,0.5);
+            box-shadow: 0.5px 1.5px 1.5px 0.5px rgba(0,0,0,0.5);
+        }
+    }
+
+    &__price-cat button:before {
+        display: none;
+        content: "";
+        float: left;
+        position: absolute;
+        top: 0;
+        right: -12px;
+        width: 0;
+        height: 0;
+        border-color: $gray-300  transparent  $gray-300 transparent;
+        border-style: solid;
+        border-width: 11px 12px 11.2px 0;
+
+        @include small_desktop {
+            border-width: 9px 10px 9.2px 0;
+        }
+
+        @include xs_tablet {
+            margin-top: -0.7px;
+            right: -10px;
+            border-width: 9px 9px 8.2px 0;
+        }
+
+        @include large_mobile {
+            border-width: 7.5px 8.5px 7px 0;
+        }
+    }
+
+    &__price-cat button:after {
+        display: none;
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        float: left;
+        width: 4px;
+        height: 4px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        background: $white;
+        -moz-box-shadow: -1px -1px 2px #004977;
+        -webkit-box-shadow: -1px -1px 2px #004977;
+        box-shadow: -1px -1px 2px #004977;
+
+        @include laptop {
+            top: 8px;
+        }
+
+        @include xs_tablet {
+            top: 7px;
+        }
+    }
+
+    &__price-cat button:hover {
+        background: $red;
+        color: $white;
+    }
+
+    &__price-cat button:hover:before {
+        border-color: $red transparent $red transparent;
+    }
+
+    &__price {
+        position: absolute;
+        align-items: left;
+        font-weight: bolder;
+        font-size: 11px;
+        cursor: default;
+        right: 7%;
+        bottom: 7%;
+        height: fit-content;
+        width: fit-content;
+        padding-left: 3px;
+        padding-right: 3px;
+        border: 1px solid #3771d0;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+
+        span {
+            text-align: center;
+            color: #0d45a0;
+        }
+        
+    }
+
+    .price-per-product {
+        //display: inline-block;
+        position: absolute;
+        width: fit-content;
+        height: 20px;
+        align-items: left;
+        right: 6%;
+        bottom: 7%;
+        cursor: pointer;
+        
+        background-color: $red;
+        -webkit-border-radius: 3px 3px 3px 3px;
+        -moz-border-radius: 3px 3px 3px 3px;
+        border-radius: 3px 3px 3px 3px;
+        border-left: 1px solid $red;
+    
+        /* This makes room for the triangle */
+        position: absolute;
+        
+        color: white;
+        font-weight: bolder;
+        font-size: 11px;
+        line-height: 20px;
+    
+        padding: 0 4px 0 5px;
+
+        @include large_mobile {
+            font-size: 10px;
+        }
+
+        @include small_mobile {
+            height: 18px;
+            line-height: 18px;
+            font-size: 8px;
+        }
+    }
+    
+    /* Makes the triangle */
+    .price-per-product:before {
+        content: "";
+        position: absolute;
+        display: block;
+        left: -12px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid $red;
+        padding-right: 2px;
+
+        @include small_mobile {
+            left: -11px;
+            border-top: 9px solid transparent;
+            border-bottom: 9px solid transparent;
+            border-right: 9px solid $red;
+        }
+    }
+    
+    /* Makes the circle */
+    .price-per-product:after {
+        content: "";
+        background-color: white;
+        border-radius: 50%;
+        width: 2px;
+        height: 2px;
+        display: block;
+        position: absolute;
+        left: -3px;
+        top: 9px;
+
+        @include small_mobile {
+            top: 8px;
+        }
+    }
+
+}

@@ -1,0 +1,17 @@
+.tasks-list {
+  &__status {
+    &--running {
+      color: green;
+    }
+
+    &--stopped {
+      color: darkred;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
+}

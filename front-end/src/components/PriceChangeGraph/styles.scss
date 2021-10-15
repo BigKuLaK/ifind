@@ -1,0 +1,33 @@
+@import 'base/scss';
+
+.price-change-graph {
+
+    @include tablet {
+        margin-top: 5.8rem;
+        margin-left: -15rem;
+    }
+
+    .highcharts-credits {
+        display: none;
+    }
+
+    .highcharts-area {
+        fill: silver;
+        fill-opacity: .5;
+    }
+
+    .highcharts-graph {
+        stroke: gray;
+    }
+
+    .highcharts-point {
+        fill: gray;
+    }
+
+    .highcharts-plot-line  {
+        stroke: #0C0;
+        stroke-dasharray: 5;
+        stroke-dashoffset: 5;
+        z-index: 5;
+    }
+}

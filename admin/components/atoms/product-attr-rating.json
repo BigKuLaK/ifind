@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_atoms_product_attr_ratings",
+  "info": {
+    "name": "product_attr_rating",
+    "icon": "star-half-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "rating": {
+      "type": "decimal",
+      "default": 1,
+      "min": 0,
+      "max": 10
+    },
+    "product_attribute": {
+      "model": "product-attribute"
+    },
+    "points": {
+      "type": "decimal"
+    },
+    "factor": {
+      "type": "decimal"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true
+    },
+    "use_custom_formula": {
+      "type": "boolean",
+      "default": false
+    },
+    "min": {
+      "type": "string"
+    },
+    "max": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.image-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+
+  &__preview {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: contain;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &::before {
+      content: '';
+      display: block;
+      padding-top: percentage(9/16);
+      background-color: #{rgba(black, .2)};
+    }
+    
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      fill: white;
+    }
+  }
+}

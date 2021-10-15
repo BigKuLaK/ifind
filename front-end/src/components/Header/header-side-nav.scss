@@ -1,0 +1,359 @@
+@import 'base/scss';
+@import 'base/global';
+
+.header-side-nav {
+    @include bootstrap(col-lg-3);
+    display: flex;
+    position: relative;
+    left: -2rem;
+    height: 100%;
+    max-width: 220px;
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        width: 220px;
+        height: 96%;
+        margin-top: 1px;
+        margin-bottom: 0;
+        background-color: $gray-900;
+        color: $white;
+        font-size: 20px;
+        font-weight: 500;
+        padding: 0px 25px;
+        cursor: pointer;
+        border: 1px solid $gray-900;
+        z-index: $z-index-sidenav-heading;
+
+        @include tablet {
+            position: absolute;
+            width: 70px;
+            margin-left: -2.1rem;
+        }
+
+        @include ms_tablet {
+            margin-left: -18px;
+        }
+
+        @include mxs_tablet {
+            margin-left: -6px;
+        }
+
+        @include xs_tablet {
+            margin-left: 20px;
+        }
+
+        &:hover {
+            background-color: $red;
+        }
+
+        i {
+            margin-right: 22px;
+        }
+    }
+
+    &__list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: -2px;
+        width: 220px;
+        background-color: $white;
+        will-change: transform;
+        transition: all 0.10s ease-out;
+        z-index: $z-index-sidenav-list;
+        cursor: default;
+        height: 467px;
+        border: 1px solid rebeccapurple;
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+
+        @include tablet {
+            position: absolute;
+            margin-left: -2.1rem;
+        }
+        
+        @include ms_tablet {
+            margin-left: -18px;
+        }
+
+        @include mxs_tablet {
+            margin-left: -6px;
+        }
+
+        @include xs_tablet {
+            margin-left: 20px;
+        }
+
+        @include large_mobile{
+            position: absolute;
+            margin-top: -2px;
+            margin-left: 1.3rem;
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        & {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .header--sticked & {
+            &:hover {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+            }
+        }
+
+        li:hover ul {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        span {
+            text-align: start;
+        }
+
+        button {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            vertical-align: middle;
+            height: 40px;
+            width: 100%;
+            font-size: 12px;
+            font-weight: 400;
+            color: black;
+            border: none;
+            background-color: white;
+            border-bottom: 1px solid $gray-300;
+
+            &:hover {
+                color: $red;
+                background-color: #eaeaea;
+            }
+
+            .category-label {
+                position: absolute;
+                margin-left: 45px;
+                width: 60%;
+            }
+
+            .change-width {
+                position: absolute;
+                margin-left: 45px;
+                width: 55%;
+            }
+        }
+
+        .num-of-elements {
+            align-items: right;
+            text-align: center;
+            margin-right: 3px;
+            margin-left: auto;
+            font-size: 10px;
+            font-weight: bold;
+            height: 20px;
+            line-height: 16px;
+            width: 20px;
+            color: $white;
+            background-color: $gray-500;
+            border: 2px solid $gray-500;
+            border-radius: 10px;
+        }
+    }
+
+    .listing {
+        padding-left: 15px;
+    }
+
+    .list {
+
+        &.active {
+
+            button {  
+                color: $red;
+                text-decoration: underline;
+                background-color: #eaeaea;         
+            }
+            
+        }
+
+        &.focus {
+            button {  
+                color: $red;
+                text-decoration: underline;
+                background-color: #eaeaea;         
+            }
+        }
+    }
+
+
+    &__sub-list {
+        a {
+            height: 50px;
+            padding: 13px 20px;
+        }
+    }
+
+    &__label {
+        display: block;
+        text-align: center;
+        line-height: 24px;
+        height: 25px;
+        border-bottom: 1px solid $gray-300;
+
+        .label {
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        //button on or off
+        .switch {
+            top: 5px;
+            bottom: 0;
+            right: 0;
+            left: 12px;
+            position: relative;
+            display: inline-block;
+            width: 28px;
+            height: 16px;
+        }
+        
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 2px;
+            top: 1.6px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        
+        input:checked + .slider {
+            background-color: $red;
+        }
+        
+        input:focus + .slider {
+            box-shadow: 0 0 0 $red;
+        }
+        
+        input:checked + .slider:before {
+            -webkit-transform: translateX(12px);
+            -ms-transform: translateX(12px);
+            transform: translateX(12px);
+        }
+        
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 19px;
+        }
+        
+        .slider.round:before {
+            border-radius: 100%;
+        }  
+
+    }
+
+    &__icon {
+        padding: 5px;
+        margin-right: 5px;
+    }
+
+    &__arrow-container {
+        position: absolute;
+        margin-top: 526px;
+        width: 99.95%;
+        height: 40px;
+        border: 1px solid rebeccapurple;
+        //background-color: $white;
+
+        .arrow-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: $red;
+            padding: 6px;
+            cursor: pointer;
+            animation: arrow-button 0.5s infinite alternate ease-in-out;
+    
+            i {
+                font-size: 30px;
+            }
+       
+        }
+    
+        @keyframes arrow-button {
+            0% { 
+                transform: translateY(-0.4rem);
+                opacity: 0.6;
+            }
+            100% { 
+                transform: translateY(0.2rem); 
+                opacity: 0.9;
+            }
+        }
+
+        @include tablet {
+            margin-left: -2.1rem;
+            width: 13.7rem;
+        }
+        
+        @include ms_tablet {
+            margin-left: -18px;
+        }
+
+        @include mxs_tablet {
+            margin-left: -6px;
+        }
+
+        @include xs_tablet {
+            margin-left: 20px;
+        }
+
+        @include large_mobile {
+            margin-left: 1.3rem;
+            width: 13.7rem;
+        }
+
+    }
+
+    .test-class {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-left: 258px;
+        margin-top: 63px;
+        height: 43px;
+        width: 787pt;
+        background-color: chartreuse;
+    }
+}

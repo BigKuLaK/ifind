@@ -1,0 +1,501 @@
+[
+  {
+    "test": {},
+    "use": [
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/builder-webpack4/node_modules/babel-loader/lib/index.js",
+        "options": {
+          "cacheDirectory": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/.cache/storybook/babel",
+          "sourceType": "unambiguous",
+          "presets": [
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-env/lib/index.js",
+              {
+                "shippedProposals": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/@babel/preset-typescript/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-react/lib/index.js",
+              {
+                "runtime": "automatic"
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-flow/lib/index.js"
+          ],
+          "plugins": [
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-shorthand-properties/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-block-scoping/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/@babel/plugin-proposal-decorators/lib/index.js",
+              {
+                "legacy": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-class-properties/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-private-methods/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-export-default-from/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-syntax-dynamic-import/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
+              {
+                "loose": true,
+                "useBuiltIns": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-classes/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-arrow-functions/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-parameters/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-destructuring/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-spread/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-for-of/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-macros/dist/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-polyfill-corejs3/lib/index.js",
+              {
+                "method": "usage-global",
+                "absoluteImports": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/core-js/index.js",
+                "version": "3.11.1"
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/babel-plugin-add-react-displayname/index.js"
+          ],
+          "overrides": [
+            {
+              "test": {},
+              "plugins": [
+                [
+                  "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/babel-plugin-react-docgen/lib/index.js",
+                  {
+                    "DOC_GEN_COLLECTION_NAME": "STORYBOOK_REACT_CLASSES"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "include": [
+      "/Users/jaysonbuquia/Jace/personal/proj/ifind"
+    ],
+    "exclude": {}
+  },
+  {
+    "test": {},
+    "use": [
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-loader/lib/index.js",
+        "options": {
+          "sourceType": "unambiguous",
+          "presets": [
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-env/lib/index.js",
+              {
+                "shippedProposals": true,
+                "modules": false,
+                "targets": "defaults"
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-react/lib/index.js"
+          ],
+          "plugins": [
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-shorthand-properties/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-block-scoping/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/@babel/plugin-proposal-decorators/lib/index.js",
+              {
+                "legacy": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-class-properties/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-private-methods/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-export-default-from/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-syntax-dynamic-import/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
+              {
+                "loose": true,
+                "useBuiltIns": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-classes/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-arrow-functions/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-parameters/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-destructuring/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-spread/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-for-of/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-macros/dist/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-polyfill-corejs3/lib/index.js",
+              {
+                "method": "usage-global",
+                "absoluteImports": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/core-js/index.js",
+                "version": "3.11.1"
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "test": {},
+    "use": [
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/raw-loader/dist/cjs.js"
+      }
+    ]
+  },
+  {
+    "test": {},
+    "include": {},
+    "use": [
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/builder-webpack4/node_modules/babel-loader/lib/index.js",
+        "options": {
+          "presets": [
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-env/lib/index.js",
+              {
+                "modules": "commonjs"
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "test": {},
+    "use": [
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/builder-webpack4/node_modules/babel-loader/lib/index.js",
+        "options": {
+          "babelrc": false,
+          "configFile": false,
+          "cacheDirectory": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/.cache/storybook/babel",
+          "sourceType": "unambiguous",
+          "presets": [
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-env/lib/index.js",
+              {
+                "shippedProposals": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/@babel/preset-typescript/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-react/lib/index.js",
+              {
+                "runtime": "automatic"
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-flow/lib/index.js"
+          ],
+          "plugins": [
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-shorthand-properties/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-block-scoping/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/@babel/plugin-proposal-decorators/lib/index.js",
+              {
+                "legacy": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-class-properties/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-private-methods/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-export-default-from/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-syntax-dynamic-import/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
+              {
+                "loose": true,
+                "useBuiltIns": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-classes/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-arrow-functions/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-parameters/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-destructuring/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-spread/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-for-of/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-macros/dist/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-polyfill-corejs3/lib/index.js",
+              {
+                "method": "usage-global",
+                "absoluteImports": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/core-js/index.js",
+                "version": "3.11.1"
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/babel-plugin-add-react-displayname/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-react-jsx/lib/index.js",
+              {
+                "pragma": "React.createElement",
+                "pragmaFrag": "React.Fragment"
+              }
+            ]
+          ],
+          "overrides": [
+            {
+              "test": {},
+              "plugins": [
+                [
+                  "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/babel-plugin-react-docgen/lib/index.js",
+                  {
+                    "DOC_GEN_COLLECTION_NAME": "STORYBOOK_REACT_CLASSES"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@mdx-js/loader/index.js",
+        "options": {
+          "compilers": [
+            null
+          ],
+          "remarkPlugins": [
+            null,
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "test": {},
+    "exclude": {},
+    "use": [
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/builder-webpack4/node_modules/babel-loader/lib/index.js",
+        "options": {
+          "babelrc": false,
+          "configFile": false,
+          "cacheDirectory": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/.cache/storybook/babel",
+          "sourceType": "unambiguous",
+          "presets": [
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-env/lib/index.js",
+              {
+                "shippedProposals": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/@babel/preset-typescript/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-react/lib/index.js",
+              {
+                "runtime": "automatic"
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/preset-flow/lib/index.js"
+          ],
+          "plugins": [
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-shorthand-properties/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-block-scoping/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/@babel/plugin-proposal-decorators/lib/index.js",
+              {
+                "legacy": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-class-properties/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-private-methods/lib/index.js",
+              {
+                "loose": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-export-default-from/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-syntax-dynamic-import/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-object-rest-spread/lib/index.js",
+              {
+                "loose": true,
+                "useBuiltIns": true
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-classes/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-arrow-functions/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-parameters/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-destructuring/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-spread/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-for-of/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-macros/dist/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-optional-chaining/lib/index.js",
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/lib/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/core-common/node_modules/babel-plugin-polyfill-corejs3/lib/index.js",
+              {
+                "method": "usage-global",
+                "absoluteImports": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/core-js/index.js",
+                "version": "3.11.1"
+              }
+            ],
+            "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/babel-plugin-add-react-displayname/index.js",
+            [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@babel/plugin-transform-react-jsx/lib/index.js",
+              {
+                "pragma": "React.createElement",
+                "pragmaFrag": "React.Fragment"
+              }
+            ]
+          ],
+          "overrides": [
+            {
+              "test": {},
+              "plugins": [
+                [
+                  "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/babel-plugin-react-docgen/lib/index.js",
+                  {
+                    "DOC_GEN_COLLECTION_NAME": "STORYBOOK_REACT_CLASSES"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@mdx-js/loader/index.js",
+        "options": {
+          "remarkPlugins": [
+            null,
+            null
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "test": {},
+    "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/source-loader/dist/cjs/index.js",
+    "options": {
+      "injectStoryParameters": true,
+      "inspectLocalDependencies": true
+    },
+    "enforce": "pre"
+  },
+  {
+    "test": {},
+    "sideEffects": true,
+    "use": [
+      "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/style-loader/dist/cjs.js",
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/builder-webpack4/node_modules/css-loader/dist/cjs.js",
+        "options": {
+          "importLoaders": 1
+        }
+      },
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/builder-webpack4/node_modules/postcss-loader/dist/cjs.js",
+        "options": {
+          "postcssOptions": {
+            "config": false,
+            "plugins": [
+              null,
+              null
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "test": {},
+    "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/@storybook/builder-webpack4/node_modules/file-loader/dist/cjs.js",
+    "options": {
+      "esModule": false,
+      "name": "static/media/[path][name].[ext]"
+    }
+  },
+  {
+    "test": {},
+    "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/url-loader/dist/cjs.js",
+    "options": {
+      "limit": 10000,
+      "name": "static/media/[path][name].[ext]"
+    }
+  },
+  {
+    "test": {},
+    "use": [
+      "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/style-loader/dist/cjs.js",
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/css-loader/dist/cjs.js",
+        "options": {
+          "importLoaders": 1,
+          "sourceMap": true
+        }
+      },
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/postcss-loader/src/index.js",
+        "options": {
+          "ident": "postcss",
+          "sourceMap": true
+        }
+      },
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/resolve-url-loader/index.js",
+        "options": {
+          "sourceMap": true,
+          "root": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/src"
+        }
+      },
+      {
+        "loader": "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/node_modules/sass-loader/dist/cjs.js",
+        "options": {
+          "sourceMap": true,
+          "sassOptions": {
+            "includePaths": [
+              "/Users/jaysonbuquia/Jace/personal/proj/ifind/front-end/src"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]

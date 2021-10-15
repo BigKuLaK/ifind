@@ -1,0 +1,1 @@
+import  "./ProductDealsGrid/index.d";

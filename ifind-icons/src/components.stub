@@ -1,0 +1,4 @@
+module.exports = {
+    spriteContents: '%sprite_contents%',
+    iconsList: [ %icons_list% ]
+}

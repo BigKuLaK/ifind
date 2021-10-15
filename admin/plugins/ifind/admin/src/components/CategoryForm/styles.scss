@@ -1,0 +1,10 @@
+.category-form {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  grid-gap: 20px;
+  width: 100%;
+
+  &__delete {
+    width: 100%;
+  }
+}

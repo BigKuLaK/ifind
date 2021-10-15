@@ -1,0 +1,13 @@
+.icon-select {
+  &__option {
+    display: flex;
+    align-items: center;
+
+    .ifind-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+      fill: gray;
+    }
+  }
+}

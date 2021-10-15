@@ -1,0 +1,25 @@
+.translated-labels-input {
+  margin-top: 20px;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 4fr 7fr 1fr;
+    grid-column-gap: 15px;
+    margin-top: 10px;
+
+    label {
+      margin-top: 0;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: gray;
+    }
+  }
+
+  .input-block {
+    margin-top: 0;
+  }
+
+  &__add {
+    margin-top: 10px;
+  }
+}

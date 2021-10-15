@@ -1,0 +1,29 @@
+@import 'base/scss';
+
+.styleguide-ifind-icons {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(color(gray-dark), .3);
+    }
+
+    &__name {
+        margin-top: 20px;
+        font-size: 12px;
+        white-space: nowrap;
+        color: color(gray);
+    }
+}
+
+.my-icon {
+    color: color(red);
+}

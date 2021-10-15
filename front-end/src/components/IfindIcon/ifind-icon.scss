@@ -1,0 +1,20 @@
+.ifind-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+
+    &--dark {
+        border-radius: 100%;
+        overflow: hidden;
+        fill: white;
+        background-color: currentColor;
+
+        use {
+            transform-origin: center;
+            transform: scale(.6);
+        }
+    }
+}

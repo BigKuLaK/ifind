@@ -1,0 +1,29 @@
+.rating-warps {
+  display: inline-flex;
+  position: relative;
+  height: 30px;
+
+  &__warps {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 30px;
+    overflow: hidden;
+
+    &--fg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &--bg {
+      opacity: .2;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: red;
+      flex-shrink: 0;
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.icons-list {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 20px;
+}
+
+.icons-list__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-shadow: 0 0 5px silver;
+}
+
+.icons-list__item .svg-inline--fa {
+  width: 25px;
+  height: 25px;
+}
+
+.icons-list__item:hover .icons-list__name {
+  transform: translate(-50%, -10px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.icons-list__name {
+  background-color: gray;
+  color: white;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: text;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 5;
+  transition: transform .15s;
+}
+
+.icons-list-filter {
+  padding: 10px 0;
+}

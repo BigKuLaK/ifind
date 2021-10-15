@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_atoms_url_with_types",
+  "info": {
+    "name": "url_with_type",
+    "icon": "external-link-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "text",
+      "required": true
+    },
+    "source": {
+      "model": "source"
+    },
+    "region": {
+      "model": "region"
+    },
+    "is_base": {
+      "type": "boolean",
+      "default": false
+    },
+    "price": {
+      "type": "decimal",
+      "min": 0,
+      "required": false
+    }
+  }
+}

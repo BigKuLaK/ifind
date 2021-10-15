@@ -1,0 +1,73 @@
+$buffetjs-blue: rgb(0, 126, 255);
+$buffetjs-green: rgb(109, 187, 26);
+$buffetjs-gray: rgb(158, 167, 184);
+$buffetjs-gray-2: rgb(180, 182, 186);
+$buffetjs-gray-3: rgb(233, 234, 235);
+$buffetjs-red: rgb(246, 77, 10);
+
+.button-link {
+  --text-color: white;
+  --bg-color: #{$buffetjs-blue};
+  --border-color: var(--bg-color);
+  --hover-bg-color: #{darken($buffetjs-blue, 5%)};
+  --hover-border-color: var(--hover-bg-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-width: 1px;
+  border-radius: 2px;
+  border-style: solid;
+  padding-inline: 15px;
+  min-height: 30px;
+  background-color: var(--bg-color);
+  border-color: var(--border-color);
+
+  &:link,
+  &:active,
+  &:visited {
+    color: var(--text-color);
+  }
+
+  &:hover {
+    text-decoration: none;
+    background-color: var(--hover-bg-color);
+    border-color: var(--hover-border-color);
+  }
+
+  &--primary {
+    --bg-color: #{$buffetjs-blue};
+  }
+
+  &--secondary {
+    --text-color: #{$buffetjs-blue};
+    --bg-color: white;
+    --hover-bg-color: white;
+    --border-color: #{$buffetjs-blue};
+    --hover-border-color: #{darken($buffetjs-blue, 5%)};
+  }
+
+  &--success {
+    --bg-color: #{$buffetjs-green};
+    --hover-bg-color: #{darken($buffetjs-green, 5%)};
+  }
+
+  &--delete {
+    --bg-color: #{$buffetjs-red};
+    --hover-bg-color: #{darken($buffetjs-red, 5%)};
+  }
+
+  &--cancel {
+    --text-color: #{$buffetjs-gray};
+    --bg-color: white;
+    --hover-bg-color: white;
+    --border-color: #{$buffetjs-gray};
+    --hover-border-color: #{$buffetjs-gray};
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    --text-color: #{$buffetjs-gray-2};
+    --bg-color: #{$buffetjs-gray-3};
+    --hover-bg-color: #{$buffetjs-gray-3};
+  }
+}

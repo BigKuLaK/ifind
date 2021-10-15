@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_atoms_social_networks",
+  "info": {
+    "name": "social_network",
+    "icon": "project-diagram",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "instagram",
+        "twitter",
+        "linkedin",
+        "youtube"
+      ],
+      "unique": true,
+      "required": true
+    }
+  }
+}

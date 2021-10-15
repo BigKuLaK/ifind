@@ -1,0 +1,8 @@
+/**
+* Allows to use bootstrap classnames and extend them into a selector
+*/
+@mixin bootstrap($classnames) {
+    @each $classname in $classnames {
+        @extend .#{$classname};
+    }
+}

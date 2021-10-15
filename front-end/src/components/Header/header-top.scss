@@ -1,0 +1,130 @@
+@import 'base/scss';
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+
+    &__container {
+        @include bootstrap(container);
+    }
+
+    &__content {
+        @include bootstrap(row);
+
+        @include laptop {
+            display: none;
+        }
+
+        @include tablet {
+            display: none;
+        }
+
+        @include large_mobile {
+            display: none;
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &__left {
+        @include bootstrap(col-lg-5 col-md-12 col-12);
+
+        .list-main {
+            @include laptop {
+                li {
+                    margin-top: 35px;
+                }
+            }  
+
+            @include tablet {
+                li {
+                    display: none;
+                }
+            }
+            
+
+            @include large_mobile {
+                li {
+                    display: none;
+                }
+            }
+
+            @include mobile {
+                li {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__right {
+        @include bootstrap(col-lg-7 col-md-12 col-12);
+
+        .list-main {
+            @include bootstrap(float-end);
+        }
+        
+        @include laptop {
+            .list-main {
+                position: absolute;
+                margin-top: -25px;
+                margin-left: 28em;
+            }
+        }
+
+        @include tablet {
+            .list-main {
+                display: none;
+            }
+        }
+
+        @include large_mobile {
+            .list-main {
+                display: none;
+            }
+        }
+
+        @include mobile {
+            .list-main {
+                display: none;
+            }
+        }
+    }
+    
+
+    .list-main {
+        margin-bottom: 0;
+        
+        li {
+            display: inline-flex;
+            align-items: center;
+            color: $gray-900;
+            font-size: 13px;
+            font-weight: 500;
+            border-left: 1px solid #f0f0f0;
+            padding: 0px 13px;
+    
+            &:first-child {
+                padding-left: 0;
+                border-left: 0;
+            }
+    
+            i {
+                display: inline-block;
+                margin-right: 4px;
+                font-size: 15px;
+                color: $red;
+                position: relative;
+            }
+    
+            a {
+                color: inherit;
+                font-size: inherit;
+            }
+        }
+    }
+}

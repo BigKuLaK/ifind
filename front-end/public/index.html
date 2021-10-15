@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="api_root" content="%REACT_APP_API_ROOT%">
+  <meta name="admin_api_root" content="%REACT_APP_ADMIN_API_ROOT%">
+  <meta name="environment" content="%REACT_APP_ENV%">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-204521375-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-204521375-1', { 'anonymize_ip': true });
+    gtag('event', 'environment', {
+      'event_category': 'PageEvent',
+      'event_label': 'Page Loaded At Environment',
+      'value': Array.from(document.head.children).filter(element => element.name === 'environment').reduce((string, el) => el.content, ''),
+    });
+  </script>
+  <!-- End Google Analytics -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKT6JF4VR9"></script>
+
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+    rel="stylesheet">
+
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/magnific-popup.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/font-awesome.css">
+  <!-- Fancybox -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/jquery.fancybox.min.css">
+  <!-- Themify Icons -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/themify-icons.css">
+  <!-- Nice Select CSS -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/niceselect.css">
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/animate.css">
+  <!-- Flex Slider CSS -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/flex-slider.min.css">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/owl-carousel.css">
+  <!-- Slicknav -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/slicknav.min.css">
+
+  <!-- Eshop StyleSheet -->
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/reset.css">
+
+  <!-- <link rel="stylesheet" href="%PUBLIC_URL%/css/responsive.css"> -->
+
+  <!-- Load jQuery(1.7+) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+  <!-- Customized Style -->
+  <!-- React Slick -->
+  <link rel="stylesheet" type="text/css" charset="UTF-8"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+  <!-- React Slick End -->
+  <title>iFINDilu</title>
+
+  <!-- Cookie Consent Banner -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <div id="portal"></div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+  <div id="cookie-banner"></div>
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  <script>
+    window.cookieconsent.initialise({
+      container: document.getElementById("cookie-banner"),
+      "palette": {
+        "popup": {
+          "background": "#3c404d",
+          "text": "#d6d6d6"
+        },
+        "button": {
+          "background": "transparent",
+          "text": "#8bed4f",
+          "border": "#8bed4f"
+        }
+      },
+      position: "bottom-right",
+      type: "opt-in",
+      content: {
+        message: "Diese Website verwendet eigene Cookies und Cookies von Dritten für Analysen und Werbung. Wenn Sie Ihren Besuch fortsetzen, stimmen Sie der Verwendung solcher Cookies zu. Mehr Informationen dazu findet Ihr unter",
+        link: "Data-protection",
+        allow: 'Einverstanden',
+        deny: 'Nicht Einverstanden',
+        href: "/data-protection"
+      },
+
+      revokable: true,
+      onStatusChange: function (status) {
+        console.log(this.hasConsented() ?
+          'enable cookies' : 'disable cookies');
+      },
+      law: {
+        regionalLaw: false,
+      },
+      location: true,
+    });
+  </script>
+
+</body>

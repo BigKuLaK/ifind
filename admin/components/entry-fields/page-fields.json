@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_entry_fields_page_fields",
+  "info": {
+    "name": "page_fields",
+    "icon": "book-open",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "language": {
+      "model": "language"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "body": {
+      "type": "richtext"
+    }
+  }
+}

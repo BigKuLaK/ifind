@@ -1,0 +1,63 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { styleguide } from '@sb';
+import IfindIcon from '@components/IfindIcon';
+import './ifind-icons.scss';
+
+# IFIND Icons
+
+## Usage
+
+### Declare Sprite
+
+The sprite needs to be rendered in the page or in the root component in order to be used in components.
+```js
+// index.js
+
+import { sprite } from 'ifind-icons';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ApolloProvider client={client}>
+
+      // Renders the sprite into the page, but stays hidden
+      <div hidden dangerouslySetInnerHTML={{ __html: spriteContents }}></div>
+
+      <App />
+    </ApolloProvider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+### Component Usage
+
+Sample:
+```js
+import IfindIcon from '@componens/IfindIcon';
+
+const SomeComponent = () ={
+  return (
+    <div>
+      <IfindIcon icon="play" />
+    </div>
+  )
+}
+```
+
+### Dark Variant
+```js
+<IfindIcon icon="play" dark={true} />
+```
+
+### Styling
+Supply a className prop to the IfindIcon in order to override styles in scss.
+```js
+// SomeComponent.js
+<IfindIcon icon="play" dark={true} className="my-icon" />
+```
+```css
+/* .scss */
+.my-icon {
+  color: color(red);
+}
+```

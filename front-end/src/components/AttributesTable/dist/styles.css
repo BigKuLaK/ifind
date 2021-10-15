@@ -1,0 +1,15 @@
+.attributes-table {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.attributes-table th {
+  background-color: silver;
+  text-transform: uppercase;
+  color: white;
+  padding: 5px;
+  font-weight: light;
+}
+.attributes-table td {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}

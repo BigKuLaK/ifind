@@ -1,0 +1,28 @@
+.product-change-history-table {
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  th {
+    white-space: nowrap;
+    padding: 10px;
+    background-color: #ddd;
+
+    &:last-child {
+      width: 50%;
+    }
+  }
+
+  tr {
+    td {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 10px;
+    }
+  }
+
+  &__state {
+    width: 100%;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,76 @@
+@import 'base/scss';
+@import 'base/global';
+
+.modal-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 105vw;
+    height: 110vh;
+    background-color: rgba(221, 221, 221, 0.3);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 570px;
+    box-shadow: rgba(0, 0, 0, 0.7) 0px 5px 15px;
+    border-radius: 12px;
+    background: #fff;
+    z-index: 100;
+
+    @include large_mobile {
+        left: 49%;
+        width: 390px;
+    }
+
+    @include mobile {
+        width: 360px;
+    }
+
+    @include sl_mobile {
+        width: 340px;
+    }
+
+    @include sm_mobile {
+        height: 480px;
+        width: 310px;
+    }
+
+    @include small_mobile {
+        width: 270px;
+    }
+}
+
+.close-button {
+    position: absolute;
+    right: 18px;
+    top: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+
+
+
+.modal-content {
+    border-top: 2px solid black;
+    margin-top: 45px;
+    height: 500px;
+    width: 350px;
+    text-align: center;
+
+    @include sm_mobile {
+        height: 410px;
+    }
+}

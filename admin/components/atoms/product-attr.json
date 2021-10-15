@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_atoms_product_attrs",
+  "info": {
+    "name": "product_attr",
+    "icon": "star",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "factor": {
+      "type": "decimal",
+      "default": 1,
+      "min": 0
+    },
+    "label_preview": {
+      "type": "string"
+    },
+    "product_attribute": {
+      "model": "product-attribute"
+    }
+  }
+}

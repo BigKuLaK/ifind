@@ -1,0 +1,26 @@
+@import "./scss";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    ol, ul, dl {
+        padding-left: 0;
+    }
+}
+
+a, a[href] {
+    text-decoration: none;
+}
+
+// Colors utility classes
+@each $color-name, $color-value in $colors {
+    #{"." + $color-name} {
+        color: $color-name;
+    }
+
+    #{".bg-" + $color-name} {
+        background-color: $color-value
+    }
+}

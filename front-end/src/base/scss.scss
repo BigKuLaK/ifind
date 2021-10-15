@@ -1,0 +1,14 @@
+// Vendor
+@import 'bootstrap/scss/bootstrap';
+
+// Config
+@import 'scss/config/colors';
+@import 'scss/config/z-indices';
+
+// Functions
+@import 'scss/functions/color';
+@import 'scss/functions/fibonacci';
+
+// Mixins
+@import "scss/mixins/bootstrap";
+@import "scss/mixins/media-queries";

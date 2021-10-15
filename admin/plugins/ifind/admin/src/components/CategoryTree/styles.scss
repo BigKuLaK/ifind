@@ -1,0 +1,90 @@
+.category-tree {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.category-tree__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-tree__item {
+  padding: 0 5px;
+  position: relative;
+
+  @for $i from 1 through 5 {
+    &[data-depth="#{$i}"] {
+      left: #{40px * $i};
+    }
+  }
+}
+
+.category-tree__item[data-hovered="true"] {
+  box-shadow: 0 0 3px lightsteelblue;
+}
+
+.category-tree__item-info {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  border-radius: 0 5px 5px 0;
+  overflow: hidden;
+  border: 1px solid lightgray;
+  background-color: white;
+  cursor: move;
+}
+
+.category-tree__item-edit-icon {
+  margin-left: 5px;
+  width: 12px;
+  height: 12px;
+  opacity: .3;
+}
+
+.category-tree__drag {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+  cursor: move;
+}
+
+.category-tree__details {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  color: black;
+}
+
+.category-tree__edit {
+  margin-left: auto;
+  align-self: center;
+  margin-right: 10px;
+}
+
+.category-tree__icon {
+  width: 25px;
+  height: 25px;
+  color: white;
+}
+
+.category-tree-add {
+  height: 30px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  border-radius: 2px;
+  margin-left: 5px;
+}
+
+.category-tree-add svg {
+  margin-right: 10px;
+}
+
+.category-tree__products-link {
+  padding: 2px 5px;
+  color: silver;
+}

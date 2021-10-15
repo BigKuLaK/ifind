@@ -1,0 +1,19 @@
+.sort-controls {
+  display: flex;
+  align-items: center;
+
+  &__control {
+    display: flex;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+
+    label {
+      white-space: nowrap;
+      margin-right: 5px;
+      margin-bottom: 0;
+    }
+  }
+}

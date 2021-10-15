@@ -1,0 +1,557 @@
+@import 'base/scss';
+@import 'base/global';
+
+.product-comparison {
+    
+    .container {
+        top: 0;
+    }
+    
+    .list {
+        z-index: -1;
+    
+        @include laptop {
+            width: 100%;
+        }
+    
+        @include tablet {
+            margin-left: -2.55rem;
+            width: 120%;
+        }
+
+        @include ms_tablet {
+            margin-left: -2rem;
+            width: 116%;
+        }
+
+        @include mxs_tablet {
+            margin-left: -0.65rem;
+            width: 107.5%;
+        }
+
+        @include xs_tablet {
+            margin-left: -5px;
+            width: 103%;
+        }
+
+        @include xl_mobile {
+            margin-left: -2px;
+            width: 102%;
+        }
+
+        @include large_mobile {
+            margin-left: -1px;
+            width: 101%;
+        }
+    }
+    
+    .nav {
+        position: sticky;
+        top: 61px;
+        height: 50px;
+        width: 101.3%;
+        background-color: $gray-900;
+        border: 1px solid $white;
+        border-radius: 6px;
+        z-index: 2;
+        margin-left: -9px;
+
+        @include desktop {
+            width: 101.5%;
+        }
+
+        @include small_desktop {
+            width: 101.5%;
+        }
+
+        @include large_laptop {
+            width: 102%;
+        }
+        
+        @include laptop {
+            width: 102.3%;
+        }
+
+        @include tablet {
+            margin-left: -1rem;
+            width: 105%;
+        }
+
+        @include small_tablet {
+            margin-left: 0;
+            width: auto;
+        }
+    }
+    
+    .nav-list {
+        position: absolute;
+        display: flex;
+        position: sticky;
+        margin-top: -1px;
+        column-gap: 38px;
+        padding: 10px;
+        z-index: 3;
+
+        @include desktop {
+            column-gap: 32.5px;
+        }
+
+        @include small_desktop {
+            column-gap: 34px;
+        }
+
+        @include large_laptop {
+            column-gap: 21.5px;
+        }
+
+        @include laptop {
+            column-gap: 21.5px;
+            scroll-behavior: smooth;
+            overflow-x: scroll;
+            overflow: hidden;
+        }
+
+        @include small_laptop {
+            margin-left: 5px;
+            width: 42rem;
+        }
+
+        @include tablet {
+            margin-left: 5px;
+            width: 38rem;
+        }
+
+        @include small_tablet {
+            margin-left: 5px;
+            width: 37rem;
+        }
+
+        @include ms_tablet {
+            width: 36rem;
+        }
+
+        @include mxs_tablet {
+            width: 33.2rem;
+        }
+
+        @include xs_tablet {
+            width: 32rem;
+        }
+
+        @media screen and (max-width: 530px) {
+            width: 31rem;
+        }
+
+        @media screen and (max-width: 510px) {
+            width: 29rem;
+        }
+
+        @include xxl_mobile {
+            width: 28.8rem;
+        }
+
+        @include xl_mobile {
+            width: 28.2rem;
+        }
+
+        @media screen and (max-width: 460px) {
+            width: 27rem;
+        }
+
+        @media screen and (max-width: 450px) {
+            width: 26rem;
+        }
+
+        @media screen and (max-width: 440px) {
+            width: 25.5rem;
+        }
+
+        @media screen and (max-width: 430px) {
+            width: 25rem;
+        }
+
+        @media screen and (max-width: 420px) {
+            width: 24rem;
+        }
+
+        @include large_mobile {
+            width: 23rem;
+        }
+
+        @include mobile {
+            width: 21rem;
+        }
+
+        @include sl_mobile {
+            width: 20rem;
+        }
+
+        @include sm_mobile {
+            width: 18rem;
+        }
+
+        @include small_mobile {
+            width: 15rem;
+        }
+    }
+
+    .rarrow-area {
+        position: absolute;
+        top: 7px;
+        left: 1px;
+        height: 35px;
+        width: 45px;
+        filter: blur(2px);
+        background: $gray-900;
+        z-index: 4;
+    }
+
+    .rarrow {
+        position: absolute;
+        top: 13px;
+        left: 5px;
+        // height: 26px;
+        // width: 26px;
+        color: $white;
+        z-index: 4;
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            font-weight: bolder;
+            font-size: 14px;
+        }
+
+        // &:hover {
+        //     border: 1px solid $red;
+        // }
+    }
+
+    .larrow-area {
+        position: absolute;
+        top: 7px;
+        left: 44.6rem;
+        height: 35px;
+        width: 42px;
+        filter: blur(2px);
+        background: $gray-900;
+        z-index: 4;
+
+        @include laptop {
+            right: auto;
+            left: 41.5rem;
+        }
+
+        @include tablet {
+            left: 37.5rem;
+        }
+
+        @include small_tablet {
+            left: 35.6rem;
+        }
+
+        @include ms_tablet {
+            left: 34.5rem;
+        }
+
+        @include mxs_tablet {
+            left: 31.9rem;
+        }
+
+        @include xs_tablet {
+            left: 30rem;
+        }
+
+        @media screen and (max-width: 530px) {
+            left: 29.7rem;
+        }
+
+        @media screen and (max-width: 520px) {
+            left: 29rem;
+        }
+
+        @media screen and (max-width: 510px) {
+            left: 28.5rem;
+        }
+
+        @include xxl_mobile {
+            left: 26.8rem;
+        }
+
+        @include xl_mobile {
+            left: 26.4rem;
+        }
+
+        @media screen and (max-width: 460px) {
+            left: 25rem;
+        }
+
+        @media screen and (max-width: 450px) {
+            left: 24.5rem;
+        }
+
+        @media screen and (max-width: 440px) {
+            left: 23.8rem;
+        }
+
+        @media screen and (max-width: 430px) {
+            left: 23.1rem;
+        }
+
+        @media screen and (max-width: 420px) {
+            left: 22.5rem;
+        }
+
+        @include large_mobile {
+            left: 21.5rem;
+        }
+
+        @include mobile {
+            left: 19.3rem;
+        }
+
+        @include sl_mobile {
+            left: 18.3rem;
+        }
+
+        @include sm_mobile {
+            left: 15.9rem;
+        }
+
+        @include small_mobile {
+            left: 13.4rem;
+        }
+    }
+
+    .larrow {
+        position: absolute;
+        top: 13px;
+        left: 45.4rem;
+        // height: 26px;
+        // width: 26px;
+        color: $white;
+        z-index: 4;
+
+        @include laptop {
+            left: 42.4rem;
+        }
+
+        @include tablet {
+            left: 38.6rem;
+        }
+        
+        @include small_tablet {
+            left: 36.6rem;
+        }
+
+        @include ms_tablet {
+            left: 35.4rem;
+        }
+
+        @include mxs_tablet {
+            left: 32.7rem;
+        }
+
+        @include xs_tablet {
+            left: 31.1rem;
+        }
+
+        @media screen and (max-width: 530px) {
+            left: 30.5rem;
+        }
+
+        @media screen and (max-width: 520px) {
+            left: 29.9rem;
+        }
+
+        @media screen and (max-width: 510px) {
+            left: 29.4rem;
+        }
+
+        @include xxl_mobile {
+            left: 27.6rem;
+        }
+        
+        @include xl_mobile {
+            left: 27rem;
+        }
+
+        @media screen and (max-width: 460px) {
+            left: 26.2rem;
+        }
+
+        @media screen and (max-width: 450px) {
+            left: 25.5rem;
+        }
+
+        @media screen and (max-width: 440px) {
+            left: 24.8rem;
+        }
+
+        @media screen and (max-width: 430px) {
+            left: 24.3rem;
+        }
+
+        @media screen and (max-width: 420px) {
+            left: 23.7rem;
+        }
+
+
+        @include large_mobile {
+            left: 22.9rem;
+        }
+
+        @include mobile {
+            left: 20.5rem;
+        }
+
+        @include sl_mobile {
+            left: 19.4rem;
+        }
+
+        @include sm_mobile {
+            left: 16.9rem;
+        }
+
+        @include small_mobile {
+            left: 14.1rem;
+        }
+
+        i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            font-weight: bolder;
+            font-size: 14px;
+        }
+
+        &:hover {
+            border: 1px solid $red;
+        }
+    }
+    
+    .buttonStyle {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        border-radius: 14px;
+        width: fit-content;
+        padding: 5px 15px;
+        background-color: $white;
+        border: 1px solid $white;
+        color: $gray-900;
+  
+    
+        @include desktop {
+            margin-top: 2px;
+            font-size: 11px;
+            padding: 4px 12px;
+        }
+
+        @include small_desktop {
+            margin-top: 2px;
+            font-size: 11px;
+            padding: 4px 11px;
+        }
+
+        @include large_laptop {
+            margin-top: 3px;
+            font-size: 10px;
+            padding: 3px 10px;
+        }
+
+        @include laptop {
+            margin-top: 3px;
+            font-size: 10px;
+            padding: 3px 10px;
+        }
+
+        @include tablet {
+            margin-top: 3px;
+            font-size: 10px;
+            padding: 4px 13px;
+        }
+    
+        &:hover {
+            background-color: $red;
+            color: white;
+            border: 1px solid $red;
+        }
+    }
+    
+    .category-icons {
+        display: flex;
+        align-items: center;
+        height: 13px;
+        width: 13px;
+        margin-right: 5px;
+    
+        @include desktop {
+            height: 10px;
+            width: 10px;
+        }
+    }
+    
+    .button-active {
+        background-color: $red;
+        color: white;
+        border: 1px solid $red;
+    }
+    
+    .carousel-container {
+        height: 8rem;
+        width: 100%;
+    }
+
+    .loading {
+	    text-align: center;
+		z-index: -5;
+    }
+
+    .loading-icon {
+        margin-top: 2%;
+        margin-left: 41%;
+	    height: 150px;
+	    pointer-events: none;
+
+		@include tablet {
+			margin-top: 5%;
+        	margin-left: 44%;
+	    	height: 110px;
+	    	pointer-events: none;
+		}
+
+        @include xl_mobile {
+            margin-top: 15%;
+        	margin-left: 38%;
+	    	height: 110px;
+	    	pointer-events: none;
+        }
+    }
+  
+    @media (prefers-reduced-motion: no-preference) {
+	    .loading-icon {
+	        animation: loading-icon-spin infinite 1.5s linear;
+	    }
+    }
+  
+    @keyframes loading-icon-spin {
+	    from {
+	        transform: rotate(0deg);
+	    }
+	    to {
+	        transform: rotate(360deg);
+	    }
+    }
+
+    .progress {
+        position: absolute;
+        top: 47%;
+        left: 43.5%;
+        height: 25px;
+        background-color: $white;
+    }
+}

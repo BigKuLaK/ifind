@@ -1,0 +1,19 @@
+.price-change-graph .highcharts-credits {
+  display: none;
+}
+.price-change-graph .highcharts-area {
+  fill: silver;
+  fill-opacity: 0.5;
+}
+.price-change-graph .highcharts-graph {
+  stroke: gray;
+}
+.price-change-graph .highcharts-point {
+  fill: gray;
+}
+.price-change-graph .highcharts-plot-line {
+  stroke: #0C0;
+  stroke-dasharray: 5;
+  stroke-dashoffset: 5;
+  z-index: 5;
+}

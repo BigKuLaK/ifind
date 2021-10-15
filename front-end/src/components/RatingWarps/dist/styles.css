@@ -1,0 +1,27 @@
+.rating-warps {
+  --warp-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  height: var(--warp-size);
+}
+.rating-warps__warps {
+  display: flex;
+  flex-wrap: nowrap;
+  height: var(--warp-size);
+  overflow: hidden;
+}
+.rating-warps__warps--fg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rating-warps__warps--bg {
+  opacity: 0.2;
+}
+.rating-warps__warps svg {
+  width: var(--warp-size);
+  height: var(--warp-size);
+  fill: red;
+  flex-shrink: 0;
+}

@@ -1,0 +1,31 @@
+.product-url-input {
+  &__control {
+    margin-top: 20px;
+  }
+
+  &__item {
+    
+  }
+
+  &__item-controls {
+    display: flex;
+
+    button {
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 0;
+
+      & + button {
+        margin-left: 20px;
+      }
+      
+      svg {
+        margin: auto;
+      }
+    }
+  }
+}

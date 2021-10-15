@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_entry_fields_source_selectors",
+  "info": {
+    "name": "source_selectors",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "product_detail": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

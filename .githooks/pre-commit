@@ -1,0 +1,13 @@
+#!/bin/sh
+cd front-end && \
+
+echo "=============================" && \
+echo "=      Auditing Files       =" && \
+echo "=============================" && \
+echo "node ./scripts/audit-files.js" && \
+
+
+echo "=============================" && \
+echo "=       Running Tests       =" && \
+echo "=============================" && \
+npm test -- --watchAll=false --coverage
