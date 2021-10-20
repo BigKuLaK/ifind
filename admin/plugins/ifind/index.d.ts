@@ -1,0 +1,1 @@
+import './admin/src/components/index.d';
