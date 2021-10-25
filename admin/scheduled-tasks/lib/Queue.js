@@ -1,3 +1,4 @@
+const moment = require('moment');
 const Task = require("./Task");
 
 const Queue = {
@@ -8,6 +9,7 @@ const Queue = {
   getList() {
     // Current Time
     const currentTime = Date.now();
+    console.log({ currentTime: moment(currentTime).format('YYYY-MM-DD hh:mm:ss A') });
 
     // Get tasks
     let tasks = Task.getAll();

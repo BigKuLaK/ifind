@@ -4,10 +4,12 @@ const { existsSync } = require("fs-extra");
 const baseDir = path.resolve(__dirname);
 const configPath = path.resolve(baseDir, 'config');
 const config = existsSync(configPath) ? require(configPath) : {};
+
 const timer = require('./lib/Timer');
 const Task = require('./lib/Task');
 const Database = require('./lib/Database');
 const Logger = require('./lib/Logger');
+const mapScheduleToFrequency = require('./utils/mapScheduleToFrequency');
 
 const LOGGER = new Logger({ baseDir });
 
@@ -67,7 +69,10 @@ class ScheduledTasks {
    */
   list() {
     const tasks = Object.values(this.tasks);
-    return tasks;
+    return tasks.map(task => ({
+      ...task,
+      frequency: mapScheduleToFrequency(task.schedule),
+    }));
   }
 
   start(id) {
@@ -114,9 +119,5 @@ class ScheduledTasks {
     LOGGER.log(`Process exitted: ${id}`);
   }
 };
-
-// const scheduledTasks = new ScheduledTasks;
-// // TODO: Determine where to init, accounting for custom strapi instance
-// // scheduledTasks.init()
 
 module.exports = ScheduledTasks;

@@ -15,7 +15,7 @@ export interface I_RawTask {
   status: string;
   frequency: string;
   next_run: string;
-  hasBackgroundProcess: boolean;
+  hasModule: boolean;
 }
 interface I_ScheduledTasksProviderValue {
   tasks: I_RawTask[];
@@ -44,7 +44,7 @@ query {
     status
     frequency
     next_run
-    hasBackgroundProcess
+    hasModule
   }
 }
 `;

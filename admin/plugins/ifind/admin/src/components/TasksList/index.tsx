@@ -115,7 +115,7 @@ const TasksList: T_TaskList = ({ tasks, onTaskAction }) => {
     name: task.name,
     frequency: task.frequency,
     next_run: moment(task.next_run).format("YYYY-MMM-DD hh:mm:ss A"),
-    action: task.hasBackgroundProcess ? getTaskActions(task) : "-",
+    action: task.hasModule ? getTaskActions(task) : "-",
   }));
 
   return <Table className="tasks-list" headers={headers} rows={rowsData} />;

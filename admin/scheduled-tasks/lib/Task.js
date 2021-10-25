@@ -40,6 +40,7 @@ class Task extends Model {
     // Get taskModulePath
     this.taskModulePath = path.resolve(tasksRoot, this.id);
     this.taskModuleFile = path.resolve(this.taskModulePath, 'index.js');
+    this.hasModule = existsSync(this.taskModuleFile);
 
     // Event emitter
     this[EVENT_EMITTER_KEY] = new EventEmitter();
@@ -62,7 +63,7 @@ class Task extends Model {
   }
 
   start() {
-    if ( this.hasModule() && !this.running ) {
+    if ( this.hasModule && !this.running ) {
       this.process = childProcess.fork(this.taskModuleFile, [], { stdio: 'pipe' });
 
       this.setRunning();
@@ -102,10 +103,6 @@ class Task extends Model {
     return this.logger.getAll();
   }
 
-  hasModule() {
-    return this.taskModulePath && existsSync(this.taskModuleFile);
-  }
-
   log(message = "", type) {
     this.logger.log(message, type);
   }
@@ -117,7 +114,7 @@ class Task extends Model {
     const { schedule } = this;
 
     while (!this.next_run || this.next_run <= now) {
-      this.next_run = this.next_run + (schedule || frequencies["daily"]); // Default to daily
+      this.next_run = (this.next_run || now) + (schedule || frequencies["daily"]); // Default to daily
     }
 
     // Save to DB
