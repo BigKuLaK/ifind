@@ -7,7 +7,7 @@ import { useLinkWithLanguage } from "@utilities/route";
 
 import HeaderSideNav from "./HeaderSideNav";
 
-import "./header-nav.scss";
+import "./header-nav.module.scss";
 
 const HeaderNav = () => {
   const { activeOffer } = useGlobalState();

@@ -9,7 +9,7 @@ import Aos from "aos";
 import { giftSectionButton, giftSectionText, offersSectionButton, offersSectionText, prodCompSectionButton, prodCompSectionText, topButton, topText, topTitle } from "./translations";
 import "aos/dist/aos.css";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const AboutUs = () => {
   const { userLanguage = "en" } = useLanguages();

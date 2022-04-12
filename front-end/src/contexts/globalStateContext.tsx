@@ -6,6 +6,7 @@ import React, {
   useEffect,
 } from "react";
 import { useParams } from "react-router";
+// import { useParams } from "@contexts/nextRouter";
 
 export const GlobalStateContext = createContext<GlobalStateContextData>({});
 

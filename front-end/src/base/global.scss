@@ -1,43 +1,44 @@
 @import "./scss";
-@import "./global/reset";
 
-// Global variables
-:root {
-  --header-nav-height-mobile: 62px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Poppins, sans-serif;
-
-  ol,
-  ul,
-  dl {
-    padding-left: 0;
+.ifind-app {
+  // Global variables
+  :root {
+    --header-nav-height-mobile: 62px;
   }
 
-  &.body--fixed {
-    position: fixed;
-    top: calc(-1 * var(--body-fixed-scroll));
-    width: 100%;
-  }
-}
-
-a,
-a[href] {
-  text-decoration: none;
-}
-
-// Colors utility classes
-@each $color-name, $color-value in $colors {
-  #{"." + $color-name} {
-    color: $color-name;
+  * {
+    box-sizing: border-box;
   }
 
-  #{".bg-" + $color-name} {
-    background-color: $color-value;
+  body {
+    font-family: Poppins, sans-serif;
+
+    ol,
+    ul,
+    dl {
+      padding-left: 0;
+    }
+
+    &.body--fixed {
+      position: fixed;
+      top: calc(-1 * var(--body-fixed-scroll));
+      width: 100%;
+    }
+  }
+
+  a,
+  a[href] {
+    text-decoration: none;
+  }
+
+  // Colors utility classes
+  @each $color-name, $color-value in $colors {
+    #{"." + $color-name} {
+      color: $color-name;
+    }
+
+    #{".bg-" + $color-name} {
+      background-color: $color-value;
+    }
   }
 }

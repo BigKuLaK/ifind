@@ -4,7 +4,7 @@ import { routesExtraConfig } from "@config/routes";
 
 import HeaderMiddle from "./HeaderMiddle";
 import HeaderNav from "./HeaderNav";
-import "./header.scss";
+import "./header.module.scss";
 
 const Header = () => {
   const [additionalClassNames, setAdditionalClassNames] = useState<string[]>(

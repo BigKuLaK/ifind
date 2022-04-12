@@ -6,7 +6,7 @@ import {
   emailButton,
 } from "./translations";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const NewsLetter = () => {
   const translate = useTranslation();

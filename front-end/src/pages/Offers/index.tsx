@@ -5,7 +5,7 @@ import {
 import GeneralTemplate from "@templates/GeneralTemplate";
 import ProductDealsGrid from "@components/ProductDealsGrid";
 import React, { PropsWithChildren, useEffect } from "react";
-import "./offers.scss";
+import "./offers.module.scss";
 import ProgressBars from "@components/ProgressBar";
 import RenderIf from "@components/RenderIf";
 import { useOffersSideNav } from "@components/OffersSideNav/context";
@@ -14,7 +14,7 @@ import { useGlobalState } from "@contexts/globalStateContext";
 import { useOffersCategories } from "@contexts/offersCategoriesContext";
 
 const Offers: React.FunctionComponent = () => {
-  const { offer_id } = useParams<OffersRouteParams>();
+  const { offer_id } = {} // useParams<OffersRouteParams>();
   const { setItems } = useOffersSideNav();
   const { setActiveOffer } = useGlobalState();
   const { loading = false, productsByDeals } = useProductsByDeals();

@@ -14,7 +14,7 @@ import { routeWithLanguage, useCurrentRouteConfig } from "@utilities/route";
 import Item from "./item";
 import Modal from "./modal";
 
-import "./natural-list.scss";
+import "./natural-list.module.scss";
 
 const ProductDetails = lazy(
   () => import("@components/ProductDetails") as Promise<any>

@@ -1,9 +1,9 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { useParams } from "react-router";
 import { useQuery } from "@apollo/react-hooks";
 import productsByDealsQuery from "@gql/productsByDealsQuery";
 
 import { useGlobalState } from "./globalStateContext";
+import { useParams } from "./nextRouter";
 
 export const ProductsByDealsContext = createContext<ProductsByDealsValues>({});
 
@@ -11,7 +11,7 @@ export const ProductsByDealsContextProvider = ({
   children,
 }: ProductsByDealsContextProviderProps) => {
   const { setActiveOffer } = useGlobalState();
-  const { offer_id } = useParams<{ offer_id: string }>();
+  const { offer_id } = useParams();
   const [productsByDeals, setProductsByDeals] = useState<ProductsByDeal[]>([]);
   const { loading, error, data } = useQuery(productsByDealsQuery, {
     variables: { offer_id },

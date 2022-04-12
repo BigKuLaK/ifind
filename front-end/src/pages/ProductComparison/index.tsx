@@ -10,7 +10,7 @@ import { GlobalStateContext } from "@contexts/globalStateContext";
 import NaturalList from "@components/NaturalList";
 import IfindIcon from "@components/IfindIcon";
 
-import "./product-comparison.scss";
+import "./product-comparison.module.scss";
 import { useCategoryTree } from "@contexts/categoriesContext";
 import { useSubCategories } from "../../contexts/categoriesContext";
 import ProgressBars from "../../components/ProgressBar";

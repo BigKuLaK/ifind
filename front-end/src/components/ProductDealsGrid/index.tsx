@@ -7,7 +7,7 @@ import RenderIf from "@components/RenderIf";
 
 import { updatedTime, loadMoreButton } from "./translations";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const INITIAL_PRODUCTS_IN_VIEW = 20;
 const PRODUCTS_PER_LOAD = 12;

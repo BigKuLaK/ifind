@@ -1,6 +1,6 @@
-import "./ifind-icon.scss";
 import PropTypes from "prop-types";
 import { iconsList } from "ifind-icons";
+import "./ifind-icon.module.scss";
 
 const IfindIcon = ({ icon, dark, className, ...props }: IfindIconProps) => {
   const iconName = icon.replace(/_/g, "-");

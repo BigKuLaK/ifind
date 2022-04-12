@@ -1,8 +1,6 @@
-import "./styles.scss";
-
 import RatingWarps from "@components/RatingWarps";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const AttributesTable = ({ attributes }: AttributesTableProps) => {
   return (

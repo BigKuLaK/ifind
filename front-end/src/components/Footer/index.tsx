@@ -3,7 +3,7 @@ import { useGlobalData } from "@contexts/globalDataContext";
 import CustomLink from "@components/Link";
 import PreloadedImage from "@components/PreloadedImage";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const logo = "/images/NewLogowith1Warp_White.png";
 

@@ -8,7 +8,7 @@ import { useTranslation } from "@translations/index";
 
 import HeaderLanguageButton from "./HeaderLanguageButton";
 import { contact } from "./translations";
-import "./header-middle.scss";
+import "./header-middle.module.scss";
 
 const logo = "/images/logowith1warp.jpg";
 

@@ -6,7 +6,7 @@ import PriceChangeGraph from "@components/PriceChangeGraph";
 import ProductRating from "@components/ProductRating";
 import Modal from "@components/Modal";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const ProductModal = ({ product, ...modalProps }: ProductModalProps) => {
   const {

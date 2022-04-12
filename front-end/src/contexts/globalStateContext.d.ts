@@ -1,4 +1,6 @@
-declare interface AllPageParams extends OffersRouteParams {}
+declare interface AllPageParams extends OffersRouteParams {
+  language?: string;
+}
 
 declare interface GlobalStateContextData {
   activeCategory?: string | number;

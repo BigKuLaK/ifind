@@ -3,7 +3,7 @@ import { useEffect, useCallback, useState } from "react";
 import Portal from "@components/Portal";
 import withConditionalRender from "@utilities/hocs/withConditionalRender";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const COLUMN_COUNTS = 12;
 

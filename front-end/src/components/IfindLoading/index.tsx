@@ -1,4 +1,4 @@
-import './styles.scss';
+import './styles.module.scss';
 
 const IfindLoading = () => (
   <div className="ifind-loading">

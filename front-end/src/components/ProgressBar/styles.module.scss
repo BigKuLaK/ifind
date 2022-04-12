@@ -1,0 +1,36 @@
+@import "base/scss";
+
+.progress {
+  margin-right: 8px;
+  margin-bottom: -2px;
+
+  span {
+    font-weight: bold;
+    font-size: 12px;
+  }
+}
+
+.progress[value] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 15px;
+  border-radius: 20px;
+}
+
+.progress[value]::-webkit-progress-bar {
+  height: 15px;
+  border-radius: 20px;
+  background-color: #eee;
+}
+
+.progress[value]::-moz-progress-bar {
+  height: 15px;
+  border-radius: 20px;
+}
+
+.progress[value]::-webkit-progress-value {
+  height: 15px;
+  border-radius: 20px;
+}

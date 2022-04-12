@@ -7,7 +7,7 @@ import { useBreakpoints } from "@utilities/breakpoints";
 import TagsFiterItem from "./item";
 import { allFilter } from "./translations";
 
-import "./styles.scss";
+import "./styles.module.scss";
 
 const TagsFilter = ({ activeTag = "all", onUpdate }: TagsFilterProps) => {
   const { tags } = useTags();

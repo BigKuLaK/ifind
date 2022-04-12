@@ -1,7 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-import './modal.scss';
+import './modal.module.scss';
 
 const modal = ({ open, close, children }: NaturalListModalProps) => {
 

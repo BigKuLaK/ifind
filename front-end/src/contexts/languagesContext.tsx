@@ -5,7 +5,8 @@ import React, {
   useEffect,
   useCallback,
 } from "react";
-import { useParams, useLocation } from "react-router-dom";
+// import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "./nextRouter";
 import { useQuery } from "@apollo/react-hooks";
 import getLanguagesQuery from "@gql/getLanguagesQuery";
 import countriesConfig from "@config/countries";
@@ -16,7 +17,7 @@ export const LanguagesProvider = ({
   children,
 }: React.PropsWithChildren<React.ReactNode>) => {
   const { pathname } = useLocation();
-  const { language } = useParams<{ language?: string }>();
+  const { language } = useParams();
   const [languages, setLanguages] = useState<LanguageWithFlag[]>([]);
   const [userLanguage, setUserLanguage] = useState(language || "");
   const {
@@ -25,15 +26,18 @@ export const LanguagesProvider = ({
     // error
   } = useQuery(getLanguagesQuery);
 
-  const replaceLanguage = useCallback((languageCode) => {
-    const urlSegments = pathname.replace(/\/$/, '').split('/');
+  const replaceLanguage = useCallback(
+    (languageCode) => {
+      const urlSegments = pathname.replace(/\/$/, "").split("/");
 
-    // Replace language code
-    urlSegments[1] = languageCode;
+      // Replace language code
+      urlSegments[1] = languageCode;
 
-    // Redirect
-    window.location.href = urlSegments.join('/');
-  }, [ pathname ]);
+      // Redirect
+      window.location.href = urlSegments.join("/");
+    },
+    [pathname]
+  );
 
   useEffect(() => {
     if (data?.languages) {
@@ -44,11 +48,10 @@ export const LanguagesProvider = ({
             ({ name }) => name === country_flag
           );
 
-          if (matchedCountry) {
-            language.flag = matchedCountry.code;
-          }
-
-          return language;
+          return {
+            ...language,
+            flag: matchedCountry ? (matchedCountry.code as string) : "",
+          };
         }
       );
       setLanguages(languagesWithFlags);

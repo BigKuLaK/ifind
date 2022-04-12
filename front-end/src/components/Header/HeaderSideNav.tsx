@@ -13,7 +13,7 @@ import { useTranslation } from "@translations/index";
 import { GlobalStateContext } from "@contexts/globalStateContext";
 import { routesExtraConfig } from "@config/routes";
 
-import "./header-side-nav.scss";
+import "./header-side-nav.module.scss";
 import HeaderSideNavSubMenu from "./HeaderSideNavSubMenu";
 import HeaderSideNavSubMenu2 from "./HeaderSideNavSubMenu2";
 import HeaderSideNavButton from "./HeaderSideNavButton";
